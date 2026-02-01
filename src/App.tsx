@@ -16,12 +16,13 @@ const base = import.meta.env.BASE_URL;
 function App() {
   return (
     <div className="relative min-h-screen bg-[var(--surface)] text-[var(--ink)]">
-      <img
-        src={`${base}led-matrix.png`}
-        alt=""
-        className="pointer-events-none absolute top-0 left-0 w-full"
-        style={{ transform: "scaleY(-1)" }}
-      />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[200%] max-w-[2368px] h-[578px] opacity-60 z-0">
+        <img
+          src={`${base}led-matrix.png`}
+          alt=""
+          className="w-full h-full object-cover scale-y-[-1]"
+        />
+      </div>
       <div className="relative z-10">
       <Hero />
       <KeyInsights />

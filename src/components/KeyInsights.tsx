@@ -265,7 +265,7 @@ export function KeyInsights() {
             strokeOpacity={0.4}
           />
 
-          <Tooltip content={<ChartTooltip />} cursor={false} />
+          <Tooltip content={<ChartTooltip />} cursor={false} isAnimationActive={false} />
 
           <Scatter data={chartData} shape={DotWithLabel} />
         </ScatterChart>

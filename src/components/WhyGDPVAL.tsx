@@ -18,7 +18,7 @@ export function WhyGDPVAL() {
         </p>
       </blockquote>
 
-      <div className="max-w-2xl space-y-8 text-[var(--ink-secondary)] leading-relaxed">
+      <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 text-[var(--ink-secondary)] leading-relaxed">
         <div>
           <h3 className="text-base font-semibold text-[var(--ink)] mb-2">
             Built by working professionals, not annotators
@@ -101,12 +101,12 @@ export function WhyGDPVAL() {
       </div>
 
       <div className="border-t border-[var(--rule)] mt-12 pt-8">
-        <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
+        <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
           GDPVAL is the only benchmark that comprehensively answers whether AI
           can perform real professional work across 36 occupations, 9 industries,
           and 17+ media formats. The data above speaks for itself.
         </p>
-        <div className="flex gap-6 mt-6">
+        <div className="flex flex-wrap gap-6 mt-6">
           <a
             href="https://parsewave.ai"
             target="_blank"

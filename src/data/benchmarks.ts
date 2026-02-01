@@ -76,8 +76,8 @@ export const benchmarks: Benchmark[] = [
     ],
     openSource: true,
     license: "CC-BY",
-    topModelScore: 74.1,
-    topModel: "GPT-5.2 Pro",
+    topModelScore: 51.59,
+    topModel: "Claude Sonnet 4.5",
     color: "#1a56db",
     isGDPVAL: true,
     strengths: [
@@ -363,8 +363,8 @@ export const benchmarks: Benchmark[] = [
     fileTypes: ["Text conversations"],
     openSource: true,
     license: "MIT",
-    topModelScore: 50.0,
-    topModel: "GPT-4o",
+    topModelScore: 70.0,
+    topModel: "Claude Sonnet 4.5",
     color: "#3d8a82",
     isGDPVAL: false,
     strengths: [
@@ -410,8 +410,8 @@ export const benchmarks: Benchmark[] = [
     fileTypes: ["Documents", "Images", "Code", "Presentations"],
     openSource: true,
     license: "CC-BY-SA-4.0",
-    topModelScore: 60.76,
-    topModel: "CoACT-1",
+    topModelScore: 66.2,
+    topModel: "AskUI VisionAgent",
     color: "#4a8ab5",
     isGDPVAL: false,
     strengths: [

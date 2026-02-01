@@ -24,7 +24,7 @@ export function KeyInsights() {
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
         Parsewave's 214 tasks for GDPVAL showed that the best AI model scores
-        just 74.1%. Here is how that compares across benchmarks -- our tasks
+        just 51.6%. Here is how that compares across benchmarks -- our tasks
         take 7-10 hours and test real professional deliverables, not
         multiple-choice questions.
       </p>

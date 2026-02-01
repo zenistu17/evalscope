@@ -97,7 +97,7 @@ export function TaskShowcase() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 6 &mdash; Sample tasks across 6 of 36 occupations. Full dataset at huggingface.co/datasets/openai/gdpval.
+        Fig. 6 &mdash; Sample tasks across 6 of 44 occupations. Full dataset at huggingface.co/datasets/openai/gdpval.
       </p>
     </section>
   );

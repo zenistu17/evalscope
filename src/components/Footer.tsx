@@ -8,7 +8,7 @@ export function Footer() {
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
-      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-6">
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
         Methodology &amp; Sources
       </h2>
 

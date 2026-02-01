@@ -77,7 +77,7 @@ export function TaskQualityComparison() {
         Task Quality Metrics
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Key quality dimensions visualized. Select a metric to compare.
       </p>
 

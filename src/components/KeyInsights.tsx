@@ -1,5 +1,5 @@
 const stats = [
-  { value: "36", label: "occupations across 9 industries" },
+  { value: "44", label: "occupations across 9 industries" },
   { value: "7h", label: "average expert completion time" },
   { value: "17+", label: "file formats incl. video, audio, 3D" },
 ];
@@ -16,7 +16,7 @@ export function KeyInsights() {
         The Landscape at a Glance
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         As AI systems move from answering trivia to performing professional work,
         the question shifts from "how smart is it?" to "can it do my job?"
         GDPVAL is the first benchmark designed to answer the latter across the

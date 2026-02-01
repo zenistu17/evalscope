@@ -84,7 +84,7 @@ export function RadarComparison() {
             </RadarChart>
           </ResponsiveContainer>
 
-          <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-2">
+          <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
             Fig. 2 &mdash; Radar comparison across 6 evaluation dimensions. GDPVAL shown solid, competitors dashed.
           </p>
         </div>

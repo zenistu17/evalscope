@@ -13,7 +13,7 @@ export function BenchmarkCards() {
         Benchmark Profiles
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         A closer look at each framework &mdash; what it tests, how it scores,
         and where it falls short.
       </p>

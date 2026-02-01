@@ -1,27 +1,4 @@
 import { benchmarks } from "@/data/benchmarks";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Check, X, Minus } from "lucide-react";
-
-const columns = [
-  { key: "name", label: "Benchmark" },
-  { key: "creator", label: "Creator" },
-  { key: "totalTasks", label: "Total Tasks" },
-  { key: "occupations", label: "Occupations" },
-  { key: "industries", label: "Industries" },
-  { key: "expertYears", label: "Expert Exp." },
-  { key: "avgTaskHours", label: "Avg Task Time" },
-  { key: "scoring", label: "Scoring" },
-  { key: "multiModal", label: "Multi-Modal" },
-  { key: "fileTypes", label: "File Types" },
-] as const;
 
 export function ComparisonTable() {
   const sorted = [...benchmarks].sort((a, b) => {
@@ -30,134 +7,95 @@ export function ComparisonTable() {
     return b.totalTasks - a.totalTasks;
   });
 
+  const maxTasks = Math.max(...benchmarks.map((b) => b.totalTasks));
+  const maxOccupations = Math.max(...benchmarks.filter((b) => b.occupations > 0).map((b) => b.occupations));
+  const maxIndustries = Math.max(...benchmarks.filter((b) => b.industries > 0).map((b) => b.industries));
+  const maxExpert = Math.max(...benchmarks.filter((b) => b.expertYears).map((b) => b.expertYears!));
+  const maxHours = Math.max(...benchmarks.map((b) => b.avgTaskHours));
+
+  function isMax(val: number, max: number) {
+    return val === max;
+  }
+
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
-      <h2 className="text-3xl font-bold mb-2">Detailed Comparison</h2>
-      <p className="text-muted-foreground mb-8 max-w-2xl">
-        Every dimension, side by side. The strongest values in each column are
-        highlighted.
+    <section className="mx-auto max-w-5xl px-6 py-16">
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">02</span>
+        <div className="w-8 h-px bg-[var(--rule)]" />
+      </div>
+
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
+        The Landscape
+      </h2>
+
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+        Eight benchmarks, ten dimensions, side by side. Leading values in each column are set in bold.
       </p>
 
-      <div className="overflow-x-auto rounded-xl border">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              {columns.map((col) => (
-                <TableHead
-                  key={col.key}
-                  className="whitespace-nowrap text-xs font-semibold"
-                >
-                  {col.label}
-                </TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sorted.map((b) => (
-              <TableRow
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b-2 border-[var(--ink)]">
+              <th className="text-left py-3 pr-4 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Benchmark</th>
+              <th className="text-left py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Creator</th>
+              <th className="text-right py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Tasks</th>
+              <th className="text-right py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Occup.</th>
+              <th className="text-right py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Indust.</th>
+              <th className="text-right py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider whitespace-nowrap">Exp. (yr)</th>
+              <th className="text-right py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider whitespace-nowrap">Avg Time</th>
+              <th className="text-left py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider">Scoring</th>
+              <th className="text-center py-3 px-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider whitespace-nowrap">Multi-Modal</th>
+              <th className="text-right py-3 pl-3 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider whitespace-nowrap">File Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((b, i) => (
+              <tr
                 key={b.id}
-                className={
-                  b.isGDPVAL
-                    ? "bg-indigo-50/50 dark:bg-indigo-950/20 font-medium"
-                    : ""
-                }
+                className={`border-b border-[var(--rule)] ${
+                  b.isGDPVAL ? "border-l-2 border-l-[var(--accent)]" : ""
+                } ${i % 2 === 1 ? "bg-[var(--surface-raised)]" : ""}`}
               >
-                <TableCell className="whitespace-nowrap">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="h-2.5 w-2.5 rounded-full shrink-0"
-                      style={{ backgroundColor: b.color }}
-                    />
-                    <span className="font-semibold">{b.name}</span>
-                    {b.isGDPVAL && (
-                      <Badge className="text-[10px] px-1.5 py-0 bg-indigo-500">
-                        Ours
-                      </Badge>
-                    )}
-                  </div>
-                </TableCell>
-                <TableCell className="text-sm">{b.creator}</TableCell>
-                <TableCell>
-                  <span
-                    className={
-                      b.totalTasks >= 1000
-                        ? "font-bold text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }
-                  >
-                    {b.totalTasks.toLocaleString()}
-                  </span>
-                </TableCell>
-                <TableCell>
-                  {b.occupations === 0 ? (
-                    <span className="text-muted-foreground">N/A</span>
-                  ) : (
-                    <span
-                      className={
-                        b.occupations >= 40
-                          ? "font-bold text-emerald-600 dark:text-emerald-400"
-                          : ""
-                      }
-                    >
-                      {b.occupations}
-                    </span>
-                  )}
-                </TableCell>
-                <TableCell>
-                  {b.industries === 0 ? (
-                    <span className="text-muted-foreground">N/A</span>
-                  ) : (
-                    <span
-                      className={
-                        b.industries >= 9
-                          ? "font-bold text-emerald-600 dark:text-emerald-400"
-                          : ""
-                      }
-                    >
-                      {b.industries}
-                    </span>
-                  )}
-                </TableCell>
-                <TableCell>
-                  {b.expertYears ? (
-                    <span
-                      className={
-                        b.expertYears >= 14
-                          ? "font-bold text-emerald-600 dark:text-emerald-400"
-                          : ""
-                      }
-                    >
-                      {b.expertYears} yr
-                    </span>
-                  ) : (
-                    <Minus className="h-4 w-4 text-muted-foreground" />
-                  )}
-                </TableCell>
-                <TableCell>
-                  {b.avgTaskHours < 1
-                    ? `${Math.round(b.avgTaskHours * 60)}m`
-                    : `${b.avgTaskHours}h`}
-                </TableCell>
-                <TableCell className="text-xs max-w-[120px]">
+                <td className="py-3 pr-4">
+                  <span className={b.isGDPVAL ? "font-semibold" : ""}>{b.name}</span>
+                </td>
+                <td className="py-3 px-3 text-[var(--ink-secondary)]">{b.creator}</td>
+                <td className={`py-3 px-3 text-right font-mono ${isMax(b.totalTasks, maxTasks) ? "font-semibold" : ""}`}>
+                  {b.totalTasks.toLocaleString()}
+                </td>
+                <td className={`py-3 px-3 text-right font-mono ${b.occupations > 0 && isMax(b.occupations, maxOccupations) ? "font-semibold" : ""}`}>
+                  {b.occupations === 0 ? <span className="text-[var(--ink-tertiary)]">&mdash;</span> : b.occupations}
+                </td>
+                <td className={`py-3 px-3 text-right font-mono ${b.industries > 0 && isMax(b.industries, maxIndustries) ? "font-semibold" : ""}`}>
+                  {b.industries === 0 ? <span className="text-[var(--ink-tertiary)]">&mdash;</span> : b.industries}
+                </td>
+                <td className={`py-3 px-3 text-right font-mono ${b.expertYears && isMax(b.expertYears, maxExpert) ? "font-semibold" : ""}`}>
+                  {b.expertYears ? b.expertYears : <span className="text-[var(--ink-tertiary)]">&mdash;</span>}
+                </td>
+                <td className={`py-3 px-3 text-right font-mono ${isMax(b.avgTaskHours, maxHours) ? "font-semibold" : ""}`}>
+                  {b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}
+                </td>
+                <td className="py-3 px-3 text-[var(--ink-secondary)] text-xs">
                   {b.scoring}
-                </TableCell>
-                <TableCell>
-                  {b.multiModal ? (
-                    <Check className="h-4 w-4 text-emerald-500" />
-                  ) : (
-                    <X className="h-4 w-4 text-red-400" />
-                  )}
-                </TableCell>
-                <TableCell className="text-xs max-w-[140px]">
+                </td>
+                <td className="py-3 px-3 text-center text-[var(--ink-secondary)]">
+                  {b.multiModal ? "Yes" : "No"}
+                </td>
+                <td className="py-3 pl-3 text-right font-mono text-xs">
                   {b.fileTypes.length > 3
-                    ? `${b.fileTypes.slice(0, 3).join(", ")} +${b.fileTypes.length - 3}`
+                    ? `${b.fileTypes.length} types`
                     : b.fileTypes.join(", ")}
-                </TableCell>
-              </TableRow>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
+          </tbody>
+        </table>
       </div>
+
+      <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
+        Fig. 1 &mdash; Comparison of 8 AI evaluation benchmarks across key dimensions.
+        Leading value in each numeric column is bold. Dash indicates not applicable.
+      </p>
     </section>
   );
 }

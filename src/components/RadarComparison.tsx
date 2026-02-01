@@ -6,153 +6,123 @@ import {
   PolarRadiusAxis,
   Radar,
   ResponsiveContainer,
-  Legend,
 } from "recharts";
 import { benchmarks, comparisonDimensions } from "@/data/benchmarks";
-import type { Benchmark } from "@/data/benchmarks";
-import { Card, CardContent } from "@/components/ui/card";
 
 export function RadarComparison() {
+  const [selected, setSelected] = useState<string[]>(["apex-agents", "swe-bench-pro", "gaia"]);
+
+  const data = comparisonDimensions.map((dim) => ({
+    dimension: dim.label,
+    ...Object.fromEntries(benchmarks.map((b) => [b.id, b.radarScores[dim.key]])),
+  }));
+
   const gdpval = benchmarks.find((b) => b.isGDPVAL)!;
-  const others = benchmarks.filter((b) => !b.isGDPVAL);
-  const [selected, setSelected] = useState<string[]>([
-    "apex-agents",
-    "swe-bench-pro",
-    "gaia",
-  ]);
+  const competitors = benchmarks.filter((b) => !b.isGDPVAL);
 
-  const selectedBenchmarks = others.filter((b) => selected.includes(b.id));
-
-  const data = comparisonDimensions.map((dim) => {
-    const point: Record<string, string | number> = {
-      dimension: dim.label,
-      GDPVAL: gdpval.radarScores[dim.key],
-    };
-    selectedBenchmarks.forEach((b) => {
-      point[b.name] = b.radarScores[dim.key];
-    });
-    return point;
-  });
-
-  const toggleBenchmark = (id: string) => {
+  function toggle(id: string) {
     setSelected((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
-  };
+  }
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
-      <h2 className="text-3xl font-bold mb-2">Multi-Dimensional Comparison</h2>
-      <p className="text-muted-foreground mb-8 max-w-2xl">
-        Compare benchmarks across 6 key dimensions. Click benchmarks below to
-        toggle them on/off.
+    <section className="mx-auto max-w-5xl px-6 py-16">
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
+        <div className="w-8 h-px bg-[var(--rule)]" />
+      </div>
+
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
+        Dimensional Analysis
+      </h2>
+
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+        Six evaluation dimensions, scored 0&ndash;100. Toggle benchmarks to compare
+        against GDPVAL.
       </p>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
-        <Card>
-          <CardContent className="pt-6">
-            <ResponsiveContainer width="100%" height={450}>
-              <RadarChart data={data}>
-                <PolarGrid stroke="#e2e8f0" />
-                <PolarAngleAxis
-                  dataKey="dimension"
-                  tick={{ fontSize: 12, fill: "#64748b" }}
-                />
-                <PolarRadiusAxis
-                  angle={30}
-                  domain={[0, 100]}
-                  tick={{ fontSize: 10, fill: "#94a3b8" }}
-                />
+      <div className="grid lg:grid-cols-[1fr_260px] gap-8">
+        <div>
+          <ResponsiveContainer width="100%" height={420}>
+            <RadarChart data={data} cx="50%" cy="50%" outerRadius="75%">
+              <PolarGrid stroke="var(--rule)" />
+              <PolarAngleAxis
+                dataKey="dimension"
+                tick={{ fontSize: 11, fill: "var(--ink-secondary)" }}
+              />
+              <PolarRadiusAxis
+                angle={30}
+                domain={[0, 100]}
+                tick={{ fontSize: 9, fill: "var(--ink-tertiary)" }}
+                axisLine={false}
+              />
 
-                {/* GDPVAL always shown */}
-                <Radar
-                  name="GDPVAL"
-                  dataKey="GDPVAL"
-                  stroke={gdpval.color}
-                  fill={gdpval.color}
-                  fillOpacity={0.15}
-                  strokeWidth={2.5}
-                />
+              <Radar
+                name={gdpval.name}
+                dataKey={gdpval.id}
+                stroke={gdpval.color}
+                fill={gdpval.color}
+                fillOpacity={0.1}
+                strokeWidth={2}
+              />
 
-                {selectedBenchmarks.map((b) => (
+              {competitors
+                .filter((b) => selected.includes(b.id))
+                .map((b) => (
                   <Radar
                     key={b.id}
                     name={b.name}
-                    dataKey={b.name}
+                    dataKey={b.id}
                     stroke={b.color}
                     fill={b.color}
-                    fillOpacity={0.06}
+                    fillOpacity={0.04}
                     strokeWidth={1.5}
                     strokeDasharray="4 4"
                   />
                 ))}
+            </RadarChart>
+          </ResponsiveContainer>
 
-                <Legend />
-              </RadarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+          <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-2">
+            Fig. 2 &mdash; Radar comparison across 6 evaluation dimensions. GDPVAL shown solid, competitors dashed.
+          </p>
+        </div>
 
-        <div className="space-y-3">
-          <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider">
-            Compare with
+        <div className="lg:border-l lg:border-[var(--rule)] lg:pl-6">
+          <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">
+            Compare Against
           </h3>
-          {others.map((b) => (
-            <BenchmarkToggle
-              key={b.id}
-              benchmark={b}
-              active={selected.includes(b.id)}
-              onToggle={() => toggleBenchmark(b.id)}
-            />
-          ))}
 
-          <div className="pt-4 border-t">
-            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-3">
-              Dimensions
-            </h3>
-            {comparisonDimensions.map((dim) => (
-              <div key={dim.key} className="mb-2">
-                <div className="text-sm font-medium">{dim.label}</div>
-                <div className="text-xs text-muted-foreground">
-                  {dim.description}
-                </div>
-              </div>
-            ))}
+          <div className="space-y-2">
+            {competitors.map((b) => {
+              const active = selected.includes(b.id);
+              return (
+                <button
+                  key={b.id}
+                  onClick={() => toggle(b.id)}
+                  className={`flex items-center gap-3 w-full text-left px-3 py-2 rounded text-sm transition-colors ${
+                    active
+                      ? "bg-[var(--surface-raised)]"
+                      : "hover:bg-[var(--surface-raised)]"
+                  }`}
+                >
+                  <span
+                    className="w-2.5 h-2.5 rounded-full shrink-0 transition-opacity"
+                    style={{
+                      backgroundColor: b.color,
+                      opacity: active ? 1 : 0.25,
+                    }}
+                  />
+                  <span className={active ? "font-medium" : "text-[var(--ink-tertiary)]"}>
+                    {b.name}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function BenchmarkToggle({
-  benchmark: b,
-  active,
-  onToggle,
-}: {
-  benchmark: Benchmark;
-  active: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <button
-      onClick={onToggle}
-      className={`w-full flex items-center gap-3 p-3 rounded-lg text-left transition-all border ${
-        active
-          ? "bg-accent border-border"
-          : "bg-transparent border-transparent hover:bg-accent/50"
-      }`}
-    >
-      <div
-        className={`h-3 w-3 rounded-full shrink-0 transition-opacity ${
-          active ? "opacity-100" : "opacity-30"
-        }`}
-        style={{ backgroundColor: b.color }}
-      />
-      <div>
-        <div className="text-sm font-medium">{b.name}</div>
-        <div className="text-xs text-muted-foreground">{b.creator}</div>
-      </div>
-    </button>
   );
 }

@@ -4,99 +4,85 @@ const benchmarkNames = benchmarks.map((b) => b.name);
 const benchmarkColors = Object.fromEntries(benchmarks.map((b) => [b.name, b.color]));
 
 export function IndustryHeatmap() {
-  // Count industries covered per benchmark
-  const coverageCount = benchmarkNames.map((name) => ({
+  const totals = benchmarkNames.map((name) => ({
     name,
-    count: industryCoverage.filter((ic) => ic.benchmarks[name]).length,
+    count: industryCoverage.filter((row) => row.benchmarks[name]).length,
   }));
 
   return (
-    <section id="heatmap" className="mx-auto max-w-7xl px-6 py-20">
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold mb-2">Industry Coverage Map</h2>
-        <p className="text-muted-foreground max-w-2xl">
-          Which industries does each benchmark actually cover? GDPVAL spans{" "}
-          <strong>10 of 12 industry categories</strong> — more than any
-          competitor combined.
-        </p>
+    <section className="mx-auto max-w-5xl px-6 py-16">
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
+        <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
-        <div className="min-w-[800px]">
-          {/* Header row */}
-          <div className="grid gap-0" style={{ gridTemplateColumns: `200px repeat(${benchmarkNames.length}, 1fr)` }}>
-            <div className="p-3 text-xs font-semibold text-muted-foreground border-b bg-muted/30" />
-            {benchmarkNames.map((name) => (
-              <div
-                key={name}
-                className="p-3 text-center text-xs font-semibold border-b border-l bg-muted/30"
-              >
-                <div
-                  className="inline-block w-2 h-2 rounded-full mr-1.5"
-                  style={{ backgroundColor: benchmarkColors[name] }}
-                />
-                {name}
-              </div>
-            ))}
-          </div>
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
+        Industry Coverage
+      </h2>
 
-          {/* Data rows */}
-          {industryCoverage.map((row, i) => (
-            <div
-              key={row.industry}
-              className="grid gap-0"
-              style={{ gridTemplateColumns: `200px repeat(${benchmarkNames.length}, 1fr)` }}
-            >
-              <div className={`p-3 text-sm font-medium ${i < industryCoverage.length - 1 ? "border-b" : ""}`}>
-                {row.industry}
-              </div>
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+        Which industries does each benchmark actually test? Filled dots indicate coverage.
+      </p>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b-2 border-[var(--ink)]">
+              <th className="text-left py-3 pr-4 font-medium text-[var(--ink-secondary)] text-xs uppercase tracking-wider w-40">
+                Industry
+              </th>
               {benchmarkNames.map((name) => {
-                const covered = row.benchmarks[name];
+                const short = benchmarks.find((b) => b.name === name)?.shortName ?? name;
                 return (
-                  <div
+                  <th
                     key={name}
-                    className={`flex items-center justify-center border-l ${i < industryCoverage.length - 1 ? "border-b" : ""} transition-colors`}
-                    style={{
-                      backgroundColor: covered ? `${benchmarkColors[name]}18` : "transparent",
-                    }}
+                    className="py-3 px-2 font-medium text-[var(--ink-secondary)] text-[10px] uppercase tracking-wider text-center"
                   >
-                    {covered ? (
-                      <div
-                        className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-bold"
-                        style={{ backgroundColor: benchmarkColors[name] }}
-                      >
-                        &#10003;
-                      </div>
-                    ) : (
-                      <div className="w-5 h-5 rounded-md bg-muted/40 flex items-center justify-center text-muted-foreground/30 text-xs">
-                        -
-                      </div>
-                    )}
-                  </div>
+                    {short}
+                  </th>
                 );
               })}
-            </div>
-          ))}
-
-          {/* Summary row */}
-          <div
-            className="grid gap-0 bg-muted/50 border-t-2"
-            style={{ gridTemplateColumns: `200px repeat(${benchmarkNames.length}, 1fr)` }}
-          >
-            <div className="p-3 text-sm font-bold">Total Coverage</div>
-            {coverageCount.map(({ name, count }) => (
-              <div key={name} className="p-3 text-center border-l">
-                <span
-                  className="inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white"
-                  style={{ backgroundColor: benchmarkColors[name] }}
-                >
-                  {count}
-                </span>
-              </div>
+            </tr>
+          </thead>
+          <tbody>
+            {industryCoverage.map((row, i) => (
+              <tr
+                key={row.industry}
+                className={`border-b border-[var(--rule)] ${i % 2 === 1 ? "bg-[var(--surface-raised)]" : ""}`}
+              >
+                <td className="py-2.5 pr-4 text-sm">{row.industry}</td>
+                {benchmarkNames.map((name) => (
+                  <td key={name} className="py-2.5 px-2 text-center">
+                    {row.benchmarks[name] ? (
+                      <span
+                        className="inline-block w-2 h-2 rounded-full"
+                        style={{ backgroundColor: benchmarkColors[name] }}
+                      />
+                    ) : (
+                      <span className="inline-block w-2 h-2 rounded-full bg-[var(--rule)] opacity-30" />
+                    )}
+                  </td>
+                ))}
+              </tr>
             ))}
-          </div>
-        </div>
+
+            <tr className="border-t-2 border-[var(--ink)]">
+              <td className="py-3 pr-4 font-medium text-xs uppercase tracking-wider text-[var(--ink-secondary)]">
+                Total
+              </td>
+              {totals.map((t) => (
+                <td key={t.name} className="py-3 px-2 text-center font-mono text-xs font-medium">
+                  {t.count}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
+        Fig. 3 &mdash; Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
+      </p>
     </section>
   );
 }

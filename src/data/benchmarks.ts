@@ -1,6 +1,7 @@
 export interface Benchmark {
   id: string;
   name: string;
+  shortName: string;
   creator: string;
   year: number;
   tagline: string;
@@ -22,7 +23,6 @@ export interface Benchmark {
   topModelScore: number;
   topModel: string;
   color: string;
-  gradient: string;
   isGDPVAL: boolean;
   strengths: string[];
   limitations: string[];
@@ -40,6 +40,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "gdpval",
     name: "GDPVAL",
+    shortName: "GDPVAL",
     creator: "Parsewave",
     year: 2025,
     tagline: "The GDP of AI Evaluation",
@@ -65,7 +66,7 @@ export const benchmarks: Benchmark[] = [
     avgTaskHours: 7.0,
     scoring: "Multi-criteria Rubric",
     scoringDetail:
-      "Multi-criteria rubric (10-40 points) with specific quality levels per criterion. Oracle + 4 model evaluations per task. Captures partial credit and nuanced quality.",
+      "Multi-criteria rubric (10\u201340 points) with specific quality levels per criterion. Oracle + 4 model evaluations per task. Captures partial credit and nuanced quality.",
     multiModal: true,
     fileTypes: [
       "PDF", "XLSX", "DOCX", "MP4", "MP3", "WAV", "PNG", "JPG",
@@ -75,8 +76,7 @@ export const benchmarks: Benchmark[] = [
     license: "CC-BY",
     topModelScore: 70.9,
     topModel: "GPT-5.2",
-    color: "#6366f1",
-    gradient: "from-indigo-500 to-purple-600",
+    color: "#1a56db",
     isGDPVAL: true,
     strengths: [
       "Broadest occupational coverage (36 professions)",
@@ -100,6 +100,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "apex-agents",
     name: "APEX-Agents",
+    shortName: "APEX-A",
     creator: "Mercor",
     year: 2026,
     tagline: "Simulated Office Work",
@@ -115,15 +116,14 @@ export const benchmarks: Benchmark[] = [
     avgTaskHours: 1.8,
     scoring: "Binary Pass/Fail",
     scoringDetail:
-      "Each task has 1-10 binary criteria (Met/Not Met). Pass@1 = probability all criteria pass in a single run.",
+      "Each task has 1\u201310 binary criteria (Met/Not Met). Pass@1 = probability all criteria pass in a single run.",
     multiModal: true,
     fileTypes: ["PDF", "XLSX", "DOCX", "PPTX", "Calendar", "Chat", "Mail"],
     openSource: true,
     license: "CC-BY 4.0",
     topModelScore: 24.0,
     topModel: "Gemini 3 Flash",
-    color: "#f59e0b",
-    gradient: "from-amber-400 to-orange-500",
+    color: "#d4820f",
     isGDPVAL: false,
     strengths: [
       "Realistic simulated environments (Google Workspace)",
@@ -148,6 +148,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "apex-v1",
     name: "APEX v1.0",
+    shortName: "APEX-1",
     creator: "Mercor",
     year: 2025,
     tagline: "White-Collar Knowledge Test",
@@ -170,8 +171,7 @@ export const benchmarks: Benchmark[] = [
     license: "CC-BY",
     topModelScore: 67.0,
     topModel: "GPT-5 (High)",
-    color: "#f97316",
-    gradient: "from-orange-400 to-red-500",
+    color: "#c75c10",
     isGDPVAL: false,
     strengths: [
       "76 domain experts with 7.25 yr avg experience",
@@ -195,6 +195,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "swe-bench-pro",
     name: "SWE-Bench Pro",
+    shortName: "SWE-BP",
     creator: "Scale AI",
     year: 2025,
     tagline: "Code-Only Gauntlet",
@@ -209,15 +210,14 @@ export const benchmarks: Benchmark[] = [
     expertYears: null,
     avgTaskHours: 1.0,
     scoring: "Test Case Pass/Fail",
-    scoringDetail: "Automated test execution in Docker containers. Binary: tests pass or they don't.",
+    scoringDetail: "Automated test execution in Docker containers. Binary: tests pass or they don\u2019t.",
     multiModal: false,
     fileTypes: ["Code files (123 languages)"],
     openSource: true,
     license: "GPL",
     topModelScore: 45.89,
     topModel: "Claude Opus 4.5",
-    color: "#8b5cf6",
-    gradient: "from-violet-500 to-purple-600",
+    color: "#7c5cbf",
     isGDPVAL: false,
     strengths: [
       "Large task count (1,865)",
@@ -241,6 +241,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "gaia",
     name: "GAIA",
+    shortName: "GAIA",
     creator: "Meta + HuggingFace",
     year: 2023,
     tagline: "General AI Quiz",
@@ -262,8 +263,7 @@ export const benchmarks: Benchmark[] = [
     license: "Apache 2.0",
     topModelScore: 74.55,
     topModel: "HAL Generalist Agent",
-    color: "#10b981",
-    gradient: "from-emerald-400 to-teal-500",
+    color: "#2d8a6e",
     isGDPVAL: false,
     strengths: [
       "Tests fundamental AI capabilities",
@@ -287,7 +287,8 @@ export const benchmarks: Benchmark[] = [
   },
   {
     id: "hle",
-    name: "Humanity's Last Exam",
+    name: "Humanity\u2019s Last Exam",
+    shortName: "HLE",
     creator: "CAIS + Scale AI",
     year: 2025,
     tagline: "Hardest Academic Questions",
@@ -309,8 +310,7 @@ export const benchmarks: Benchmark[] = [
     license: "MIT",
     topModelScore: 37.52,
     topModel: "Gemini-3-Pro-Preview",
-    color: "#ec4899",
-    gradient: "from-pink-400 to-rose-500",
+    color: "#b84578",
     isGDPVAL: false,
     strengths: [
       "Largest question count (3,000)",
@@ -334,6 +334,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "tau-bench",
     name: "Tau-Bench",
+    shortName: "T-Bench",
     creator: "Sierra AI",
     year: 2024,
     tagline: "Customer Service Bot Test",
@@ -355,8 +356,7 @@ export const benchmarks: Benchmark[] = [
     license: "MIT",
     topModelScore: 50.0,
     topModel: "GPT-4o",
-    color: "#14b8a6",
-    gradient: "from-teal-400 to-cyan-500",
+    color: "#3d8a82",
     isGDPVAL: false,
     strengths: [
       "Tests multi-turn interaction",
@@ -380,6 +380,7 @@ export const benchmarks: Benchmark[] = [
   {
     id: "swe-lancer",
     name: "SWE-Lancer",
+    shortName: "SWE-L",
     creator: "OpenAI",
     year: 2025,
     tagline: "Freelance Coding Gigs",
@@ -401,8 +402,7 @@ export const benchmarks: Benchmark[] = [
     license: "MIT",
     topModelScore: 26.2,
     topModel: "Claude 3.5 Sonnet",
-    color: "#0ea5e9",
-    gradient: "from-sky-400 to-blue-500",
+    color: "#4a8ab5",
     isGDPVAL: false,
     strengths: [
       "Real paid gigs ($1M in payouts)",
@@ -428,40 +428,37 @@ export interface ComparisonDimension {
   key: keyof Benchmark["radarScores"];
   label: string;
   description: string;
-  icon: string;
 }
 
 export const comparisonDimensions: ComparisonDimension[] = [
-  { key: "breadth", label: "Occupational Breadth", description: "Number and diversity of professional domains covered", icon: "Users" },
-  { key: "depth", label: "Task Depth", description: "Complexity and duration of individual tasks", icon: "Layers" },
-  { key: "realism", label: "Real-World Realism", description: "How closely tasks mirror actual professional work", icon: "Target" },
-  { key: "rigor", label: "Evaluation Rigor", description: "Quality and reliability of the scoring methodology", icon: "Shield" },
-  { key: "multimodality", label: "Multi-Modal Coverage", description: "Diversity of file types and media formats tested", icon: "FileVideo" },
-  { key: "accessibility", label: "Accessibility", description: "Ease of use, open-source availability, documentation", icon: "Globe" },
+  { key: "breadth", label: "Occupational Breadth", description: "Number and diversity of professional domains covered" },
+  { key: "depth", label: "Task Depth", description: "Complexity and duration of individual tasks" },
+  { key: "realism", label: "Real-World Realism", description: "How closely tasks mirror actual professional work" },
+  { key: "rigor", label: "Evaluation Rigor", description: "Quality and reliability of the scoring methodology" },
+  { key: "multimodality", label: "Multi-Modal Coverage", description: "Diversity of file types and media formats tested" },
+  { key: "accessibility", label: "Accessibility", description: "Ease of use, open-source availability, documentation" },
 ];
 
-// Data for the industry coverage heatmap
 export interface IndustryCoverage {
   industry: string;
   benchmarks: Record<string, boolean>;
 }
 
 export const industryCoverage: IndustryCoverage[] = [
-  { industry: "Finance & Insurance", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Healthcare", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Legal", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Engineering & Manufacturing", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Media & Creative", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Software & IT", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": true, "GAIA": true, "HLE": true, "Tau-Bench": false, "SWE-Lancer": true } },
-  { industry: "Government & Admin", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Real Estate", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Consulting", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Customer Service", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": true, "SWE-Lancer": false } },
-  { industry: "Education", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "HLE": true, "Tau-Bench": false, "SWE-Lancer": false } },
-  { industry: "Academic Research", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "HLE": true, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Finance & Insurance", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Healthcare", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Legal", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Engineering & Mfg", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Media & Creative", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Software & IT", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": true, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "SWE-Lancer": true } },
+  { industry: "Government & Admin", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Real Estate", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Consulting", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Customer Service", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": true, "SWE-Lancer": false } },
+  { industry: "Education", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "SWE-Lancer": false } },
+  { industry: "Academic Research", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "SWE-Lancer": false } },
 ];
 
-// File type diversity data
 export interface FileTypeBucket {
   category: string;
   types: string[];
@@ -469,18 +466,25 @@ export interface FileTypeBucket {
 }
 
 export const fileTypeBuckets: FileTypeBucket[] = [
-  { category: "Documents", types: ["PDF", "DOCX", "TXT"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": true, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Spreadsheets", types: ["XLSX", "CSV"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Presentations", types: ["PPTX"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Video", types: ["MP4"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Audio", types: ["MP3", "WAV"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Images", types: ["PNG", "JPG", "SVG"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "HLE": true, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "3D Models", types: ["STL", "USDZ"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": false } },
-  { category: "Code", types: ["PY", "JS", "DART"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "SWE-Bench Pro": true, "GAIA": false, "HLE": false, "Tau-Bench": false, "SWE-Lancer": true } },
+  { category: "Documents", types: ["PDF", "DOCX", "TXT"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": true, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Spreadsheets", types: ["XLSX", "CSV"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Presentations", types: ["PPTX"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Video", types: ["MP4"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Audio", types: ["MP3", "WAV"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Images", types: ["PNG", "JPG", "SVG"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "3D Models", types: ["STL", "USDZ"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "SWE-Bench Pro": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": false } },
+  { category: "Code", types: ["PY", "JS", "DART"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "SWE-Bench Pro": true, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "SWE-Lancer": true } },
 ];
 
-export const difficultyDistribution = [
-  { difficulty: "Easy", gdpval: 45, apex: 50, sweBench: 60, hle: 0 },
-  { difficulty: "Medium", gdpval: 105, apex: 100, sweBench: 800, hle: 0 },
-  { difficulty: "Hard", gdpval: 63, apex: 50, sweBench: 1065, hle: 3000 },
+export const sources = [
+  { id: 1, label: "GDPVAL", url: "https://parsewave.ai" },
+  { id: 2, label: "GDPVAL Dataset", url: "https://huggingface.co/datasets/openai/gdpval" },
+  { id: 3, label: "APEX-Agents", url: "https://huggingface.co/datasets/mercor/apex-agents" },
+  { id: 4, label: "APEX v1.0", url: "https://arxiv.org/abs/2509.25721" },
+  { id: 5, label: "SWE-Bench Pro", url: "https://scale.com/leaderboard/swe_bench_pro_public" },
+  { id: 6, label: "GAIA", url: "https://huggingface.co/papers/2311.12983" },
+  { id: 7, label: "Humanity\u2019s Last Exam", url: "https://scale.com/leaderboard/humanitys_last_exam" },
+  { id: 8, label: "Tau-Bench", url: "https://sierra.ai/blog/benchmarking-ai-agents" },
+  { id: 9, label: "SWE-Lancer", url: "https://openai.com/index/swe-lancer/" },
+  { id: 10, label: "Artificial Analysis Intelligence Index", url: "https://artificialanalysis.ai/text/intelligence-index" },
 ];

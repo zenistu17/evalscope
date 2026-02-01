@@ -31,7 +31,7 @@ export function WhyParsewave() {
           </h3>
           <p>
             We recruit professionals with an average of 14 years in their
-            field -- accountants, nurses, film editors, engineers, lawyers.
+            field: accountants, nurses, film editors, engineers, lawyers.
             Not crowd-sourced annotators or graduate students. Mercor's APEX
             tasks use experts with 7.25 years average experience. Academic
             benchmarks like HLE and GAIA use researcher-created questions that
@@ -45,7 +45,7 @@ export function WhyParsewave() {
           </h3>
           <p>
             Our task library spans 36 occupations across 9 GDP-contributing
-            sectors -- from financial advisors to video editors to procurement
+            sectors, from financial advisors to video editors to procurement
             specialists. Competitors cover 3-4 white-collar roles. No other
             evaluation task set captures the diversity of how AI will actually
             impact the workforce.
@@ -95,7 +95,7 @@ export function WhyParsewave() {
       <div className="mt-10">
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
           This is the methodology that produced GDPVAL. We can build the same
-          for your evaluation needs -- across any industry, occupation, or
+          for your evaluation needs, across any industry, occupation, or
           media format.
         </p>
       </div>

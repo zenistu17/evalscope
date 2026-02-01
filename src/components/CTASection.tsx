@@ -7,7 +7,7 @@ export function CTASection() {
         </h2>
 
         <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-4 text-lg">
-          Parsewave builds the tasks that power GDPVAL -- real professional
+          Parsewave builds the tasks that power GDPVAL: real professional
           deliverables created by domain experts with an average of 14 years of
           experience. If you need rigorous, multi-modal evaluation tasks that
           measure what AI can actually do, we should talk.
@@ -17,7 +17,7 @@ export function CTASection() {
           We work with AI labs to design, build, and validate professional
           evaluation tasks across any industry or occupation. Whether you are
           building a new benchmark, extending an existing one, or need custom
-          evaluation for your models -- we bring the same methodology that
+          evaluation for your models, we bring the same methodology that
           OpenAI trusted for GDPVAL.
         </p>
 

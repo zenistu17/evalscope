@@ -24,7 +24,7 @@ export function Hero() {
 
       <p className="text-lg text-[var(--ink-secondary)] max-w-xl leading-relaxed mb-6">
         Parsewave created 214 professional-grade evaluation tasks for
-        GDPVAL -- the benchmark OpenAI uses to measure whether AI can do real
+        GDPVAL, the benchmark OpenAI uses to measure whether AI can do real
         work. Here is how our methodology compares to everything else.
       </p>
 

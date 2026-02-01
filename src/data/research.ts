@@ -117,7 +117,7 @@ export const competitorIssues: CompetitorIssue[] = [
         sourceUrl: "https://www.futurehouse.org/research-announcements/hle-exam",
       },
       {
-        text: "\"This is not PhD-level research, but instead trivia.\" Question writers verified models couldn't answer, but reviewers only spent 5 minutes checking -- and didn't need to verify correctness.",
+        text: "\"This is not PhD-level research, but instead trivia.\" Question writers verified models couldn't answer, but reviewers only spent 5 minutes checking, and didn't need to verify correctness.",
         source: "FutureHouse",
         sourceUrl: "https://www.futurehouse.org/research-announcements/hle-exam",
       },

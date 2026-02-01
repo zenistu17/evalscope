@@ -9,11 +9,11 @@ export function InThePress() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        What the Press Says About Our Work
+        What the Press Says About GDPVAL
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        Industry coverage of GDPVAL -- the benchmark built on Parsewave's tasks.
+        Industry coverage of GDPVAL, the benchmark built on Parsewave's tasks.
       </p>
 
       <div className="space-y-8">
@@ -24,7 +24,7 @@ export function InThePress() {
             </p>
             {pq.attribution && (
               <p className="text-xs text-[var(--ink-secondary)] mb-1">
-                -- {pq.attribution}
+                — {pq.attribution}
               </p>
             )}
             <a

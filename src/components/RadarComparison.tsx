@@ -129,7 +129,7 @@ export function RadarComparison() {
             {comparisonDimensions.map((dim) => (
               <div key={dim.key} className="text-xs">
                 <span className="font-medium text-[var(--ink-secondary)]">{dim.label}</span>
-                <span className="text-[var(--ink-tertiary)]"> -- {dim.description}</span>
+                <span className="text-[var(--ink-tertiary)]">: {dim.description}</span>
               </div>
             ))}
           </div>

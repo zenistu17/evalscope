@@ -45,7 +45,7 @@ export function TheStakes() {
           "{openaiQuote.quote}"
         </p>
         <cite className="text-sm text-[var(--ink-tertiary)] not-italic">
-          -- {openaiQuote.attribution},{" "}
+          — {openaiQuote.attribution},{" "}
           <a
             href={openaiQuote.sourceUrl}
             target="_blank"

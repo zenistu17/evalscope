@@ -2,17 +2,17 @@ import { sources } from "@/data/benchmarks";
 
 export function Footer() {
   return (
-    <footer className="mx-auto max-w-5xl px-6 pt-16 pb-20">
+    <footer className="mx-auto max-w-5xl px-6 pt-10 pb-16">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">10</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
-      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-10">
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-6">
         Methodology &amp; Sources
       </h2>
 
-      <div className="grid md:grid-cols-[1.2fr_1fr] gap-12">
+      <div className="grid md:grid-cols-[1.2fr_1fr] gap-10">
         <div>
           <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">
             Methodology

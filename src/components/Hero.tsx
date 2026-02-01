@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <header className="mx-auto max-w-5xl px-6 pt-20 pb-16">
+    <header className="mx-auto max-w-5xl px-6 pt-16 pb-6">
       <div className="border-b border-[var(--rule)] pb-4 mb-10 flex items-baseline justify-between">
         <span className="text-sm font-medium tracking-wide">EvalScope</span>
         <span className="text-xs text-[var(--ink-tertiary)]">by Parsewave</span>

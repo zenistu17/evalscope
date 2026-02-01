@@ -13,7 +13,7 @@ export function FileTypeMatrix() {
   })).sort((a, b) => b.count - a.count);
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -23,7 +23,7 @@ export function FileTypeMatrix() {
         File Format Diversity
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Real professional work involves more than text. This matrix shows which
         media categories each benchmark supports.
       </p>
@@ -79,7 +79,7 @@ export function FileTypeMatrix() {
         </table>
       </div>
 
-      <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4 mb-10">
+      <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4 mb-6">
         Fig. 4 &mdash; File format support across 8 media categories.
       </p>
 

@@ -27,7 +27,7 @@ export function RadarComparison() {
   }
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -37,7 +37,7 @@ export function RadarComparison() {
         Dimensional Analysis
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Six evaluation dimensions, scored 0&ndash;100. Toggle benchmarks to compare
         against GDPVAL.
       </p>

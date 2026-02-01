@@ -1,16 +1,16 @@
 export function WhyGDPVAL() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">08</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
-      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-10">
+      <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-6">
         Editorial Analysis
       </h2>
 
-      <blockquote className="border-l-2 border-[var(--accent)] pl-6 mb-12">
+      <blockquote className="border-l-2 border-[var(--accent)] pl-6 mb-8">
         <p className="font-serif italic text-[1.5rem] leading-[1.4] text-[var(--ink)]">
           Benchmarks should measure what matters: can AI do real professional
           work, across the full breadth of the economy, producing deliverables

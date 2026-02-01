@@ -6,7 +6,7 @@ const stats = [
 
 export function KeyInsights() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">01</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -16,7 +16,7 @@ export function KeyInsights() {
         The Landscape at a Glance
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-12">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
         As AI systems move from answering trivia to performing professional work,
         the question shifts from "how smart is it?" to "can it do my job?"
         GDPVAL is the first benchmark designed to answer the latter across the

@@ -18,7 +18,7 @@ export function ComparisonTable() {
   }
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">02</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -28,7 +28,7 @@ export function ComparisonTable() {
         The Landscape
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Eight benchmarks, ten dimensions, side by side. Leading values in each column are set in bold.
       </p>
 
@@ -52,11 +52,9 @@ export function ComparisonTable() {
             {sorted.map((b, i) => (
               <tr
                 key={b.id}
-                className={`border-b border-[var(--rule)] ${
-                  b.isGDPVAL ? "border-l-2 border-l-[var(--accent)]" : ""
-                } ${i % 2 === 1 ? "bg-[var(--surface-raised)]" : ""}`}
+                className={`border-b border-[var(--rule)] ${i % 2 === 1 ? "bg-[var(--surface-raised)]" : ""}`}
               >
-                <td className="py-3 pr-4">
+                <td className={`py-3 pr-4 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-3" : ""}`}>
                   <span className={b.isGDPVAL ? "font-semibold" : ""}>{b.name}</span>
                 </td>
                 <td className="py-3 px-3 text-[var(--ink-secondary)]">{b.creator}</td>

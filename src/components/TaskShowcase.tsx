@@ -45,7 +45,7 @@ const showcaseTasks = [
 
 export function TaskShowcase() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">09</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -55,7 +55,7 @@ export function TaskShowcase() {
         Task Examples
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Representative tasks from the GDPVAL benchmark. Each task produces a
         real deliverable that domain experts evaluate against multi-criteria rubrics.
       </p>

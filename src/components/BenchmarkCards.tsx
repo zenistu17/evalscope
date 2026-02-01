@@ -3,7 +3,7 @@ import type { Benchmark } from "@/data/benchmarks";
 
 export function BenchmarkCards() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">03</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
@@ -13,7 +13,7 @@ export function BenchmarkCards() {
         Benchmark Profiles
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-12">
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
         A closer look at each framework &mdash; what it tests, how it scores,
         and where it falls short.
       </p>

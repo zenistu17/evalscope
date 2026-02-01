@@ -24,7 +24,7 @@ function getData(tab: TabId) {
     case "occupations":
       return {
         title: "Occupational Coverage",
-        caption: "Fig. 5a",
+        caption: "Fig. 6a",
         unit: "",
         data: benchmarks
           .filter((b) => b.occupations > 0)
@@ -34,7 +34,7 @@ function getData(tab: TabId) {
     case "tasks":
       return {
         title: "Total Task Count",
-        caption: "Fig. 5b",
+        caption: "Fig. 6b",
         unit: "",
         data: benchmarks
           .map((b) => ({ name: b.shortName, value: b.totalTasks, color: b.color, isGDPVAL: b.isGDPVAL }))
@@ -43,7 +43,7 @@ function getData(tab: TabId) {
     case "experts":
       return {
         title: "Expert Experience (Years)",
-        caption: "Fig. 5c",
+        caption: "Fig. 6c",
         unit: "yr",
         data: benchmarks
           .filter((b) => b.expertYears !== null)
@@ -53,7 +53,7 @@ function getData(tab: TabId) {
     case "hours":
       return {
         title: "Average Task Duration (Hours)",
-        caption: "Fig. 5d",
+        caption: "Fig. 6d",
         unit: "h",
         data: benchmarks
           .map((b) => ({ name: b.shortName, value: b.avgTaskHours, color: b.color, isGDPVAL: b.isGDPVAL }))
@@ -69,7 +69,7 @@ export function TaskQualityComparison() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">07</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">08</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 

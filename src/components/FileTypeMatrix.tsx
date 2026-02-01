@@ -15,7 +15,7 @@ export function FileTypeMatrix() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">07</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -80,7 +80,7 @@ export function FileTypeMatrix() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4 mb-6">
-        Fig. 4  - File format support across 8 media categories.
+        Fig. 5  - File format support across 8 media categories.
       </p>
 
       <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">

@@ -1,13 +1,14 @@
 import { Hero } from "@/components/Hero";
 import { KeyInsights } from "@/components/KeyInsights";
 import { ComparisonTable } from "@/components/ComparisonTable";
-import { BenchmarkCards } from "@/components/BenchmarkCards";
+import { WhyGDPVAL } from "@/components/WhyGDPVAL";
+import { TaskShowcase } from "@/components/TaskShowcase";
 import { RadarComparison } from "@/components/RadarComparison";
 import { IndustryHeatmap } from "@/components/IndustryHeatmap";
 import { FileTypeMatrix } from "@/components/FileTypeMatrix";
 import { TaskQualityComparison } from "@/components/TaskQualityComparison";
-import { WhyGDPVAL } from "@/components/WhyGDPVAL";
-import { TaskShowcase } from "@/components/TaskShowcase";
+import { BenchmarkCards } from "@/components/BenchmarkCards";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <ComparisonTable />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
-      <BenchmarkCards />
+      <WhyGDPVAL />
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <TaskShowcase />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <RadarComparison />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
@@ -28,9 +31,9 @@ function App() {
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <TaskQualityComparison />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
-      <WhyGDPVAL />
+      <BenchmarkCards />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
-      <TaskShowcase />
+      <CTASection />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <Footer />
     </div>

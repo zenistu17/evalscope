@@ -11,18 +11,26 @@ export function Hero() {
         Are Created Equal
       </h1>
 
-      <p className="text-lg text-[var(--ink-secondary)] max-w-lg leading-relaxed mb-8">
+      <p className="text-lg text-[var(--ink-secondary)] max-w-lg leading-relaxed mb-6">
         We build the professional-grade tasks that power GDPVAL - the benchmark
         OpenAI uses to measure whether AI can do real work. Here is how it
         compares to everything else.
       </p>
 
-      <div className="flex items-center gap-6 text-xs text-[var(--ink-tertiary)]">
+      <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-[var(--accent)] mb-6">
+        <span>Selected by OpenAI</span>
+        <span className="text-[var(--rule)]">|</span>
+        <span>Adopted by Artificial Analysis Intelligence Index</span>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-6 text-xs text-[var(--ink-tertiary)]">
         <span className="font-mono">February 2026</span>
         <span className="text-[var(--rule)]">|</span>
-        <span>214 tasks across 36 occupations</span>
+        <span>214 tasks delivered</span>
         <span className="text-[var(--rule)]">|</span>
-        <span>7-10 hours of expert work per task</span>
+        <span>14 years avg expert experience</span>
+        <span className="text-[var(--rule)]">|</span>
+        <span>7-10 hours per task</span>
       </div>
 
       <div className="border-b border-[var(--rule)] mt-10" />

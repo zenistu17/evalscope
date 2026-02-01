@@ -5,17 +5,17 @@ export function BenchmarkCards() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">03</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">09</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        Benchmark Profiles
+        Appendix: Benchmark Profiles
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        A closer look at each framework  - what it tests, how it scores,
-        and where it falls short.
+        Detailed profiles of all eight benchmarks for reference. Each entry
+        includes scope, methodology, and known limitations.
       </p>
 
       <div className="space-y-10">

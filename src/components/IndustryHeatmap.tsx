@@ -12,7 +12,7 @@ export function IndustryHeatmap() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -81,7 +81,7 @@ export function IndustryHeatmap() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 3  - Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
+        Fig. 4  - Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
       </p>
     </section>
   );

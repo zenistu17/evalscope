@@ -11,7 +11,7 @@ const showcaseTasks = [
     industry: "Media & Creative",
     task: "Edit raw interview footage into a polished 3-minute promotional video with transitions, color grading, and audio mixing.",
     fileTypes: ["MP4", "MP3", "PNG"],
-    hours: 6,
+    hours: 7,
   },
   {
     occupation: "Procurement Specialist",
@@ -25,14 +25,14 @@ const showcaseTasks = [
     industry: "Engineering & Mfg",
     task: "Design a replacement bracket from field measurements, produce a 3D model, and generate a technical drawing with tolerances.",
     fileTypes: ["STL", "PDF", "PNG"],
-    hours: 5,
+    hours: 8,
   },
   {
     occupation: "Registered Nurse",
     industry: "Healthcare",
     task: "Compile a pediatric well-child examination report from clinical data, immunization records, and anticipatory guidance references.",
     fileTypes: ["DOCX", "PDF"],
-    hours: 4,
+    hours: 7,
   },
   {
     occupation: "Music Producer",
@@ -47,17 +47,18 @@ export function TaskShowcase() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">09</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        Task Examples
+        What We Build
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        Representative tasks from the GDPVAL benchmark. Each task produces a
-        real deliverable that domain experts evaluate against multi-criteria rubrics.
+        Representative tasks Parsewave has built for GDPVAL. Each is a real
+        professional deliverable, created by domain experts and evaluated against
+        multi-criteria rubrics.
       </p>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -97,7 +98,7 @@ export function TaskShowcase() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 6 - Sample tasks across 6 of 36 occupations. Each task takes an expert 7-10 hours to complete.
+        Fig. 2 - Sample tasks across 6 of 36 occupations. Each task takes an expert 7-10 hours to complete.
       </p>
     </section>
   );

@@ -1,7 +1,7 @@
 const stats = [
+  { value: "214", label: "professional-grade tasks delivered" },
+  { value: "14yr", label: "average expert experience" },
   { value: "36", label: "occupations across 9 industries" },
-  { value: "7h", label: "average expert completion time" },
-  { value: "17+", label: "file formats incl. video, audio, 3D" },
 ];
 
 export function KeyInsights() {
@@ -20,7 +20,8 @@ export function KeyInsights() {
         As AI systems move from answering trivia to performing professional work,
         the question shifts from "how smart is it?" to "can it do my job?"
         GDPVAL is the first benchmark designed to answer the latter across the
-        full breadth of the economy. Here is how it compares.
+        full breadth of the economy. Parsewave built every one of its 214 tasks.
+        Here is how it compares.
       </p>
 
       <div className="flex items-stretch divide-x divide-[var(--rule)]">

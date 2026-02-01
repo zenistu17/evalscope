@@ -46,7 +46,7 @@ export const benchmarks: Benchmark[] = [
     tagline: "The GDP of AI Evaluation",
     description:
       "Real-world economically valuable tasks across 36 occupations in 9 GDP-dominant industries. Tests whether AI can produce professional-quality deliverables that real experts would sign off on.",
-    url: "https://parsewave.ai",
+    url: "https://huggingface.co/datasets/openai/gdpval",
     totalTasks: 214,
     publicTasks: 214,
     occupations: 36,
@@ -480,7 +480,7 @@ export const fileTypeBuckets: FileTypeBucket[] = [
 ];
 
 export const sources = [
-  { id: 1, label: "GDPVAL", url: "https://parsewave.ai" },
+  { id: 1, label: "Parsewave (GDPVAL task creator)", url: "https://parsewave.ai" },
   { id: 2, label: "GDPVAL Dataset", url: "https://huggingface.co/datasets/openai/gdpval" },
   { id: 3, label: "APEX-Agents", url: "https://huggingface.co/datasets/mercor/apex-agents" },
   { id: 4, label: "APEX v1.0", url: "https://arxiv.org/abs/2509.25721" },

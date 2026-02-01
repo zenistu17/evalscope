@@ -1,8 +1,14 @@
-const stats = [
-  { value: "214", label: "professional-grade tasks delivered" },
-  { value: "14yr", label: "average expert experience" },
-  { value: "36", label: "occupations across 9 industries" },
-];
+import { benchmarks } from "@/data/benchmarks";
+
+const sorted = [...benchmarks]
+  .map((b) => ({
+    shortName: b.shortName,
+    topModelScore: b.topModelScore,
+    topModel: b.topModel,
+    color: b.color,
+    isGDPVAL: b.isGDPVAL,
+  }))
+  .sort((a, b) => b.topModelScore - a.topModelScore);
 
 export function KeyInsights() {
   return (
@@ -13,29 +19,46 @@ export function KeyInsights() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        The Landscape at a Glance
+        State of AI Performance
       </h2>
 
-      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        As AI systems move from answering trivia to performing professional work,
-        the question shifts from "how smart is it?" to "can it do my job?"
-        GDPVAL is the first benchmark designed to answer the latter across the
-        full breadth of the economy. Parsewave built every one of its 214 tasks.
-        Here is how it compares.
+      <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
+        The highest score any AI model has achieved on each benchmark. GDPVAL
+        tasks take 7-10 hours and test real professional deliverables -- not
+        multiple-choice questions or short answers.
       </p>
 
-      <div className="flex items-stretch divide-x divide-[var(--rule)]">
-        {stats.map((s) => (
-          <div key={s.value} className="flex-1 px-8 first:pl-0 last:pr-0">
-            <div className="font-mono text-4xl font-medium tracking-tight mb-2">
-              {s.value}
+      <div className="space-y-3">
+        {sorted.map((b) => (
+          <div key={b.shortName} className="flex items-center gap-4">
+            <div className="w-16 text-sm font-mono shrink-0 text-right">
+              {b.shortName}
             </div>
-            <div className="text-sm text-[var(--ink-secondary)] leading-snug">
-              {s.label}
+            <div className="flex-1 h-2 bg-[var(--surface-raised)] relative">
+              <div
+                className="h-full absolute left-0 top-0"
+                style={{
+                  width: `${b.topModelScore}%`,
+                  backgroundColor: b.isGDPVAL ? "var(--accent)" : "#bbb",
+                }}
+              />
+            </div>
+            <div className="shrink-0 flex items-baseline gap-2">
+              <span className={`font-mono text-sm ${b.isGDPVAL ? "font-semibold" : ""}`}>
+                {b.topModelScore}%
+              </span>
+              <span className="text-xs text-[var(--ink-tertiary)] hidden sm:inline">
+                {b.topModel}
+              </span>
             </div>
           </div>
         ))}
       </div>
+
+      <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
+        Fig. 0 - Top model scores across 8 benchmarks. Higher is better.
+        GDPVAL highlighted in blue.
+      </p>
     </section>
   );
 }

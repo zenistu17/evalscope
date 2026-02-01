@@ -94,7 +94,7 @@ export function RadarComparison() {
             Compare Against
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-2 mb-6">
             {competitors.map((b) => {
               const active = selected.includes(b.id);
               return (
@@ -120,6 +120,18 @@ export function RadarComparison() {
                 </button>
               );
             })}
+          </div>
+
+          <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-3">
+            Dimensions
+          </h3>
+          <div className="space-y-2">
+            {comparisonDimensions.map((dim) => (
+              <div key={dim.key} className="text-xs">
+                <span className="font-medium text-[var(--ink-secondary)]">{dim.label}</span>
+                <span className="text-[var(--ink-tertiary)]"> -- {dim.description}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

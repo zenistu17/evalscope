@@ -5,6 +5,7 @@ export function Hero() {
     <header className="mx-auto max-w-5xl px-6 pt-16 pb-6">
       <div className="border-b border-[var(--rule)] pb-4 mb-10 flex items-center justify-between">
         <span className="text-sm font-medium tracking-wide">EvalScope</span>
+        <span className="font-serif italic text-sm text-[var(--ink-secondary)] ml-2">The Benchmark for Benchmarks</span>
         <a
           href="https://parsewave.ai"
           target="_blank"

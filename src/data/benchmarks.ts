@@ -490,4 +490,12 @@ export const sources = [
   { id: 8, label: "Tau-Bench", url: "https://sierra.ai/blog/benchmarking-ai-agents" },
   { id: 9, label: "OSWorld", url: "https://os-world.github.io/" },
   { id: 10, label: "Artificial Analysis Intelligence Index", url: "https://artificialanalysis.ai/text/intelligence-index" },
+  { id: 11, label: "OpenAI GDPval Blog", url: "https://openai.com/index/gdpval/" },
+  { id: 12, label: "McKinsey: Economic Potential of Generative AI", url: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" },
+  { id: 13, label: "Goldman Sachs: AI and the Global Workforce", url: "https://www.goldmansachs.com/insights/articles/how-will-ai-affect-the-global-workforce" },
+  { id: 14, label: "FutureHouse: HLE Answer Accuracy Analysis", url: "https://www.futurehouse.org/research-announcements/hle-exam" },
+  { id: 15, label: "Epoch AI: OSWorld Analysis", url: "https://epoch.ai/blog/what-does-osworld-tell-us-about-ais-ability-to-use-computers" },
+  { id: 16, label: "VentureBeat: Intelligence Index v4.0", url: "https://venturebeat.com/technology/artificial-analysis-overhauls-its-ai-intelligence-index-replacing-popular" },
+  { id: 17, label: "Fortune: GDPval Benchmark", url: "https://fortune.com/2025/09/30/ai-models-are-already-as-good-as-experts-at-half-of-tasks-a-new-openai-benchmark-gdpval-suggests/" },
+  { id: 18, label: "MIT Technology Review: AI Benchmarks", url: "https://www.technologyreview.com/2024/11/26/1107346/the-way-we-measure-progress-in-ai-is-terrible/" },
 ];

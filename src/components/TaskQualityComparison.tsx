@@ -24,7 +24,7 @@ function getData(tab: TabId) {
     case "occupations":
       return {
         title: "Occupational Coverage",
-        caption: "Fig. 6a",
+        caption: "Fig. 5a",
         unit: "",
         data: benchmarks
           .filter((b) => b.occupations > 0)
@@ -34,7 +34,7 @@ function getData(tab: TabId) {
     case "tasks":
       return {
         title: "Total Task Count",
-        caption: "Fig. 6b",
+        caption: "Fig. 5b",
         unit: "",
         data: benchmarks
           .map((b) => ({ name: b.shortName, value: b.totalTasks, color: b.color, isGDPVAL: b.isGDPVAL }))
@@ -43,7 +43,7 @@ function getData(tab: TabId) {
     case "experts":
       return {
         title: "Expert Experience (Years)",
-        caption: "Fig. 6c",
+        caption: "Fig. 5c",
         unit: "yr",
         data: benchmarks
           .filter((b) => b.expertYears !== null)
@@ -53,7 +53,7 @@ function getData(tab: TabId) {
     case "hours":
       return {
         title: "Average Task Duration (Hours)",
-        caption: "Fig. 6d",
+        caption: "Fig. 5d",
         unit: "h",
         data: benchmarks
           .map((b) => ({ name: b.shortName, value: b.avgTaskHours, color: b.color, isGDPVAL: b.isGDPVAL }))

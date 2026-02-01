@@ -14,9 +14,9 @@ function App() {
     <div className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
       <Hero />
       <KeyInsights />
-      <div className="mx-auto max-w-4xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <ComparisonTable />
-      <div className="mx-auto max-w-4xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <BenchmarkCards />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <RadarComparison />
@@ -24,11 +24,11 @@ function App() {
       <IndustryHeatmap />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <FileTypeMatrix />
-      <div className="mx-auto max-w-4xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <TaskQualityComparison />
-      <div className="mx-auto max-w-4xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <WhyGDPVAL />
-      <div className="mx-auto max-w-4xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <Footer />
     </div>
   );

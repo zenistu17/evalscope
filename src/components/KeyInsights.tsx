@@ -6,7 +6,7 @@ const stats = [
 
 export function KeyInsights() {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-16">
       <div className="flex items-center gap-3 mb-6">
         <span className="font-mono text-xs text-[var(--ink-tertiary)]">01</span>
         <div className="w-8 h-px bg-[var(--rule)]" />

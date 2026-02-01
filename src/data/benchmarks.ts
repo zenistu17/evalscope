@@ -41,7 +41,7 @@ export const benchmarks: Benchmark[] = [
     id: "gdpval",
     name: "GDPVAL",
     shortName: "GDPVAL",
-    creator: "Parsewave",
+    creator: "OpenAI",
     year: 2025,
     tagline: "The GDP of AI Evaluation",
     description:

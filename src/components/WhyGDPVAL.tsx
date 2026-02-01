@@ -104,7 +104,7 @@ export function WhyGDPVAL() {
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
           GDPVAL is the only benchmark that comprehensively answers whether AI
           can perform real professional work across 36 occupations, 9 industries,
-          and 17+ media formats. Parsewave built it. OpenAI adopted it.
+          and 17+ media formats. Parsewave builds the tasks that make it possible.
         </p>
         <div className="flex flex-wrap items-center gap-6 mt-6">
           <a

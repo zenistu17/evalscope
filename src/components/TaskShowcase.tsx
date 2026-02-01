@@ -97,7 +97,7 @@ export function TaskShowcase() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 6 - Sample tasks across 6 of 36 occupations. Each task takes an expert 4-10 hours to complete.
+        Fig. 6 - Sample tasks across 6 of 36 occupations. Each task takes an expert 7-10 hours to complete.
       </p>
     </section>
   );

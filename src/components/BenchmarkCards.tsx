@@ -88,7 +88,7 @@ function BenchmarkEntry({
       </button>
 
       {isOpen && (
-        <div className={`pb-6 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
+        <div className={`pt-4 pb-6 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
           {b.taskBuilder && (
             <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-3">
               All {b.totalTasks} tasks built by {b.taskBuilder}

@@ -88,89 +88,108 @@ function BenchmarkEntry({
       </button>
 
       {isOpen && (
-        <div className={`pb-5 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
+        <div className={`pb-6 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
           {b.taskBuilder && (
-            <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-2">
+            <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-3">
               All {b.totalTasks} tasks built by {b.taskBuilder}
             </p>
           )}
-          <p className="text-[var(--ink-secondary)] text-sm leading-relaxed mb-3">
+          <p className="text-[var(--ink-secondary)] text-sm leading-relaxed mb-4">
             {b.description}
           </p>
 
-          <div className="font-mono text-xs text-[var(--ink-secondary)] flex flex-wrap gap-x-2 gap-y-1 mb-3">
-            <span>{b.totalTasks.toLocaleString()} tasks</span>
-            <span className="text-[var(--rule)]">|</span>
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 mb-4 text-xs">
+            <div>
+              <span className="text-[var(--ink-tertiary)]">Tasks</span>
+              <span className="font-mono ml-2">{b.totalTasks.toLocaleString()}</span>
+            </div>
             {b.occupations > 0 && (
-              <>
-                <span>{b.occupations} occupations</span>
-                <span className="text-[var(--rule)]">|</span>
-              </>
+              <div>
+                <span className="text-[var(--ink-tertiary)]">Occupations</span>
+                <span className="font-mono ml-2">{b.occupations}</span>
+              </div>
             )}
             {b.industries > 0 && (
-              <>
-                <span>{b.industries} {b.industries === 1 ? "industry" : "industries"}</span>
-                <span className="text-[var(--rule)]">|</span>
-              </>
+              <div>
+                <span className="text-[var(--ink-tertiary)]">Industries</span>
+                <span className="font-mono ml-2">{b.industries}</span>
+              </div>
             )}
-            <span>{b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m avg` : `${b.avgTaskHours}h avg`}</span>
+            <div>
+              <span className="text-[var(--ink-tertiary)]">Avg time</span>
+              <span className="font-mono ml-2">{b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}</span>
+            </div>
             {b.expertYears && (
-              <>
-                <span className="text-[var(--rule)]">|</span>
-                <span>{b.expertYears}yr expert exp.</span>
-              </>
+              <div>
+                <span className="text-[var(--ink-tertiary)]">Expert exp.</span>
+                <span className="font-mono ml-2">{b.expertYears}yr</span>
+              </div>
             )}
-            <span className="text-[var(--rule)]">|</span>
-            <span>{b.scoring}</span>
+            <div>
+              <span className="text-[var(--ink-tertiary)]">Scoring</span>
+              <span className="font-mono ml-2">{b.scoring}</span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs text-[var(--ink-tertiary)]">Top model:</span>
+          {/* Top model score */}
+          <div className="flex items-center gap-3 mb-4 py-2 px-3 bg-[var(--surface-raised)] border border-[var(--rule)]">
+            <span className="text-xs text-[var(--ink-tertiary)]">Top model</span>
             <span className="font-mono text-xs font-medium">{b.topModel}</span>
-            <div className="flex-1 max-w-32 h-1 bg-[var(--surface)] relative">
+            <div className="flex-1 max-w-32 h-1.5 bg-[var(--surface)] relative rounded-full">
               <div
-                className="h-full absolute left-0 top-0"
+                className="h-full absolute left-0 top-0 rounded-full"
                 style={{
                   width: `${b.topModelScore}%`,
                   backgroundColor: b.isGDPVAL ? "var(--accent)" : b.color,
                 }}
               />
             </div>
-            <span className="font-mono text-xs">{b.topModelScore}%</span>
+            <span className="font-mono text-xs font-medium">{b.topModelScore}%</span>
           </div>
 
-          <p className="text-xs text-[var(--ink-secondary)] leading-relaxed mb-3">
+          <p className="text-xs text-[var(--ink-secondary)] leading-relaxed mb-4">
             {b.scoringDetail}
           </p>
 
-          {b.strengths.length > 0 && (
-            <div className="mb-2">
-              <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Strengths: </span>
-              <span className="text-xs text-[var(--ink-secondary)]">
-                {b.strengths.join(". ")}.
-              </span>
-            </div>
-          )}
-
-          {b.limitations.length > 0 && (
-            <div className="mb-2">
-              <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Limitations: </span>
-              <span className="text-xs text-[var(--ink-secondary)]">
-                {b.limitations.join(". ")}.
-              </span>
-            </div>
-          )}
-
-          <div className="mt-3">
-            <a
-              href={b.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[var(--accent)] hover:text-[var(--accent-strong)] transition-colors"
-            >
-              {b.url.replace("https://", "").split("/").slice(0, 2).join("/")} {'->'}
-            </a>
+          {/* Strengths & Limitations as lists */}
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            {b.strengths.length > 0 && (
+              <div>
+                <h4 className="text-[10px] font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-1.5">Strengths</h4>
+                <ul className="space-y-1">
+                  {b.strengths.map((s, i) => (
+                    <li key={i} className="text-xs text-[var(--ink-secondary)] leading-relaxed flex gap-1.5">
+                      <span className="text-[var(--accent)] shrink-0 mt-px">+</span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {b.limitations.length > 0 && (
+              <div>
+                <h4 className="text-[10px] font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-1.5">Limitations</h4>
+                <ul className="space-y-1">
+                  {b.limitations.map((l, i) => (
+                    <li key={i} className="text-xs text-[var(--ink-secondary)] leading-relaxed flex gap-1.5">
+                      <span className="text-[var(--ink-tertiary)] shrink-0 mt-px">-</span>
+                      {l}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
+
+          <a
+            href={b.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[var(--accent)] hover:text-[var(--accent-strong)] transition-colors"
+          >
+            {b.url.replace("https://", "").split("/").slice(0, 2).join("/")} {'->'}
+          </a>
         </div>
       )}
     </div>

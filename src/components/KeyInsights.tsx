@@ -18,7 +18,7 @@ interface DataPoint {
   x: number;
   y: number;
   topModel: string;
-  isGDPVAL: boolean;
+  isGDPval: boolean;
 }
 
 const chartData: DataPoint[] = benchmarks.map((b) => ({
@@ -27,7 +27,7 @@ const chartData: DataPoint[] = benchmarks.map((b) => ({
   x: b.topModelScore,
   y: b.avgTaskHours,
   topModel: b.topModel,
-  isGDPVAL: b.isGDPVAL,
+  isGDPval: b.isGDPval,
 }));
 
 // Hand-tuned per-point label offsets [dx, dy, anchor] to avoid ALL overlaps.
@@ -35,7 +35,7 @@ const chartData: DataPoint[] = benchmarks.map((b) => ({
 // Layout map (approximate positions on chart):
 //
 //   8h |
-//   7h |              ● GDPVAL (51.6, 7.0)
+//   7h |              ● GDPval (51.6, 7.0)
 //   6h |
 //   5h |
 //   4h |
@@ -48,7 +48,7 @@ const chartData: DataPoint[] = benchmarks.map((b) => ({
 //
 type Anchor = "start" | "end" | "middle";
 const labelPos: Record<string, [number, number, Anchor]> = {
-  "GDPVAL":  [14, 0, "start"],    // right of dot (isolated at top, plenty of room)
+  "GDPval":  [14, 0, "start"],    // right of dot (isolated at top, plenty of room)
   "APEX-1":  [12, 0, "start"],    // right of dot (isolated in middle)
   "APEX-A":  [12, 0, "start"],    // right of dot (isolated on left side)
   "HLE":     [-10, 0, "end"],     // left of dot  (avoids WArena to its right)
@@ -63,11 +63,11 @@ function DotWithLabel(props: any) {
   if (cx == null || cy == null || !payload) return null;
   const d = payload as DataPoint;
   const [dx, dy, anchor] = labelPos[d.name] || [10, 0, "start"];
-  const isG = d.isGDPVAL;
+  const isG = d.isGDPval;
 
   return (
     <g>
-      {/* GDPVAL gets a subtle halo to draw the eye */}
+      {/* GDPval gets a subtle halo to draw the eye */}
       {isG && (
         <circle
           cx={cx} cy={cy} r={16}
@@ -92,7 +92,7 @@ function DotWithLabel(props: any) {
       >
         {d.name}
       </text>
-      {/* GDPVAL gets a second-line annotation */}
+      {/* GDPval gets a second-line annotation */}
       {isG && (
         <text
           x={cx + 14} y={cy + 16}
@@ -127,7 +127,7 @@ function ChartTooltip({ active, payload }: any) {
         style={{
           fontWeight: 600,
           fontSize: 12,
-          color: d.isGDPVAL ? "var(--accent)" : "var(--ink)",
+          color: d.isGDPval ? "var(--accent)" : "var(--ink)",
           marginBottom: 2,
         }}
       >
@@ -160,7 +160,7 @@ export function KeyInsights() {
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Each point is a benchmark. The best benchmarks live in the top-left:
-        complex professional tasks that AI still cannot solve. GDPVAL sits
+        complex professional tasks that AI still cannot solve. GDPval sits
         there alone.
       </p>
 
@@ -169,7 +169,7 @@ export function KeyInsights() {
         <div className="flex items-center gap-2">
           <span className="inline-block w-3 h-3 rounded-full bg-[var(--accent)]" />
           <span className="font-mono text-[11px] text-[var(--ink-secondary)]">
-            GDPVAL (Parsewave)
+            GDPval (Parsewave)
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -179,7 +179,7 @@ export function KeyInsights() {
           </span>
         </div>
         <span className="font-mono text-[11px] text-[var(--ink-tertiary)]">
-          Hover for details
+          Hover or tap for details
         </span>
       </div>
 
@@ -282,14 +282,14 @@ export function KeyInsights() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-3">
-        Fig. 0 — Task complexity vs solvability across 8 benchmarks. Shaded
+        Fig. 1 — Task complexity vs solvability across 8 benchmarks. Shaded
         quadrant marks the ideal zone.
       </p>
 
       {/* Key takeaway callout */}
       <div className="mt-6 p-5 bg-[var(--surface-raised)] border-l-2 border-l-[var(--accent)]">
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
-          GDPVAL is the only benchmark that is both genuinely unsolved (51.6%
+          GDPval is the only benchmark that is both genuinely unsolved (51.6%
           top score) and deeply complex (7-hour professional tasks). Academic
           benchmarks like HLE are hard but test short-answer questions. Agent
           benchmarks like GAIA are nearly saturated. Parsewave's tasks remain

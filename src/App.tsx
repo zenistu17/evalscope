@@ -32,7 +32,7 @@ function App() {
           that set the industry standard for AI evaluation.
         </p>
         <p className="font-mono text-xs text-[var(--ink-tertiary)]">
-          Built by Parsewave for OpenAI's GDPVAL
+          Built by Parsewave for OpenAI's GDPval
         </p>
       </div>
 

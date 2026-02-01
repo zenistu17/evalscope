@@ -12,7 +12,7 @@ export function Hero() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          <img src={`${base}parsewave-logo.png`} alt="Parsewave" className="h-5 w-5" />
+          <img src={`${base}parsewave-logo.png`} alt="" className="h-5 w-5" />
           <img src={`${base}parsewave-text.png`} alt="Parsewave" className="h-3.5" />
         </a>
       </div>
@@ -24,7 +24,7 @@ export function Hero() {
 
       <p className="text-lg text-[var(--ink-secondary)] max-w-xl leading-relaxed mb-6">
         Parsewave created 214 professional-grade evaluation tasks for
-        GDPVAL, the benchmark OpenAI uses to measure whether AI can do real
+        GDPval, the benchmark OpenAI uses to measure whether AI can do real
         work. Here is how our methodology compares to everything else.
       </p>
 

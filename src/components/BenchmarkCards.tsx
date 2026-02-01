@@ -51,8 +51,9 @@ function BenchmarkEntry({
     <div className="border-b border-[var(--rule)]">
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
         className={`w-full text-left py-4 flex items-center gap-4 transition-colors ${
-          isOpen ? "bg-[var(--surface-raised)] px-4 -mx-4" : "hover:bg-[var(--surface-raised)] hover:px-4 hover:-mx-4"
+          isOpen ? "bg-[var(--surface-raised)]" : "hover:bg-[var(--surface-raised)]"
         }`}
       >
         <svg
@@ -63,13 +64,14 @@ function BenchmarkEntry({
           fill="none"
           stroke="var(--ink-tertiary)"
           strokeWidth="1.5"
+          aria-hidden="true"
         >
           <path d="M3 4.5L6 7.5L9 4.5" />
         </svg>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-baseline gap-3">
-            <span className={`font-semibold ${b.isGDPVAL ? "text-[var(--accent)]" : ""}`}>
+            <span className={`font-semibold ${b.isGDPval ? "text-[var(--accent)]" : ""}`}>
               {b.name}
             </span>
             <span className="text-xs text-[var(--ink-tertiary)] shrink-0">
@@ -88,7 +90,7 @@ function BenchmarkEntry({
       </button>
 
       {isOpen && (
-        <div className={`pt-4 pb-6 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
+        <div className={`pt-4 pb-6 ${b.isGDPval ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
           {b.taskBuilder && (
             <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-3">
               All {b.totalTasks} tasks built by {b.taskBuilder}
@@ -120,7 +122,7 @@ function BenchmarkEntry({
               <span className="text-[var(--ink-tertiary)]">Avg time</span>
               <span className="font-mono ml-2">{b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}</span>
             </div>
-            {b.expertYears && (
+            {b.expertYears != null && (
               <div>
                 <span className="text-[var(--ink-tertiary)]">Expert exp.</span>
                 <span className="font-mono ml-2">{b.expertYears}yr</span>
@@ -141,7 +143,7 @@ function BenchmarkEntry({
                 className="h-full absolute left-0 top-0 rounded-full"
                 style={{
                   width: `${b.topModelScore}%`,
-                  backgroundColor: b.isGDPVAL ? "var(--accent)" : b.color,
+                  backgroundColor: b.isGDPval ? "var(--accent)" : b.color,
                 }}
               />
             </div>

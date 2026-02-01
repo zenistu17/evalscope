@@ -24,39 +24,39 @@ function getData(tab: TabId) {
     case "occupations":
       return {
         title: "Occupational Coverage",
-        caption: "Fig. 5a",
+        caption: "Fig. 6a",
         unit: "",
         data: benchmarks
           .filter((b) => b.occupations > 0)
-          .map((b) => ({ name: b.shortName, value: b.occupations, color: b.color, isGDPVAL: b.isGDPVAL }))
+          .map((b) => ({ name: b.shortName, value: b.occupations, color: b.color, isGDPval: b.isGDPval }))
           .sort((a, b) => b.value - a.value),
       };
     case "tasks":
       return {
         title: "Total Task Count",
-        caption: "Fig. 5b",
+        caption: "Fig. 6b",
         unit: "",
         data: benchmarks
-          .map((b) => ({ name: b.shortName, value: b.totalTasks, color: b.color, isGDPVAL: b.isGDPVAL }))
+          .map((b) => ({ name: b.shortName, value: b.totalTasks, color: b.color, isGDPval: b.isGDPval }))
           .sort((a, b) => b.value - a.value),
       };
     case "experts":
       return {
         title: "Expert Experience (Years)",
-        caption: "Fig. 5c",
+        caption: "Fig. 6c",
         unit: "yr",
         data: benchmarks
           .filter((b) => b.expertYears !== null)
-          .map((b) => ({ name: b.shortName, value: b.expertYears!, color: b.color, isGDPVAL: b.isGDPVAL }))
+          .map((b) => ({ name: b.shortName, value: b.expertYears!, color: b.color, isGDPval: b.isGDPval }))
           .sort((a, b) => b.value - a.value),
       };
     case "hours":
       return {
         title: "Average Task Duration (Hours)",
-        caption: "Fig. 5d",
+        caption: "Fig. 6d",
         unit: "h",
         data: benchmarks
-          .map((b) => ({ name: b.shortName, value: b.avgTaskHours, color: b.color, isGDPVAL: b.isGDPVAL }))
+          .map((b) => ({ name: b.shortName, value: b.avgTaskHours, color: b.color, isGDPval: b.isGDPval }))
           .sort((a, b) => b.value - a.value),
       };
   }
@@ -121,7 +121,7 @@ export function TaskQualityComparison() {
             {data.map((entry, i) => (
               <Cell
                 key={i}
-                fill={entry.isGDPVAL ? "var(--accent)" : "#bbb"}
+                fill={entry.isGDPval ? "var(--accent)" : "#bbb"}
               />
             ))}
             <LabelList
@@ -135,7 +135,7 @@ export function TaskQualityComparison() {
       </ResponsiveContainer>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        {caption}  - {title.toLowerCase()}. GDPVAL (Parsewave) highlighted in blue.
+        {caption} - {title.toLowerCase()}. GDPval (Parsewave) highlighted in blue.
       </p>
     </section>
   );

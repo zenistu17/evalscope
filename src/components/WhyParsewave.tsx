@@ -16,10 +16,10 @@ export function WhyParsewave() {
             Trusted by OpenAI
           </h3>
           <p>
-            Our tasks were selected by OpenAI for GDPVAL, their primary
+            Our tasks were selected by OpenAI for GDPval, their primary
             benchmark for measuring real-world AI capabilities. Artificial
             Analysis replaced legacy benchmarks (MMLU-Pro, AIME) with our
-            GDPVAL data in their Intelligence Index v4.0. When the industry
+            GDPval data in their Intelligence Index v4.0. When the industry
             needs to measure whether AI can do real work, they use tasks we
             built.
           </p>
@@ -94,7 +94,7 @@ export function WhyParsewave() {
 
       <div className="mt-10">
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
-          This is the methodology that produced GDPVAL. We can build the same
+          This is the methodology that produced GDPval. We can build the same
           for your evaluation needs, across any industry, occupation, or
           media format.
         </p>

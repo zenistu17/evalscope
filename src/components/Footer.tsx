@@ -75,7 +75,7 @@ export function Footer() {
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
         >
-          <img src={`${base}parsewave-logo.png`} alt="Parsewave" className="h-5 w-5" />
+          <img src={`${base}parsewave-logo.png`} alt="" className="h-5 w-5" />
           <img src={`${base}parsewave-text.png`} alt="Parsewave" className="h-3.5" />
         </a>
         <p className="font-mono text-[11px] text-[var(--ink-tertiary)]">

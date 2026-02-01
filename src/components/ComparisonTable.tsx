@@ -1,19 +1,19 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { benchmarks } from "@/data/benchmarks";
 
 export function ComparisonTable() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const sorted = [...benchmarks].sort((a, b) => {
-    if (a.isGDPVAL) return -1;
-    if (b.isGDPVAL) return 1;
+    if (a.isGDPval) return -1;
+    if (b.isGDPval) return 1;
     return b.totalTasks - a.totalTasks;
   });
 
   const maxTasks = Math.max(...benchmarks.map((b) => b.totalTasks));
   const maxOccupations = Math.max(...benchmarks.filter((b) => b.occupations > 0).map((b) => b.occupations));
   const maxIndustries = Math.max(...benchmarks.filter((b) => b.industries > 0).map((b) => b.industries));
-  const maxExpert = Math.max(...benchmarks.filter((b) => b.expertYears).map((b) => b.expertYears!));
+  const maxExpert = Math.max(0, ...benchmarks.filter((b) => b.expertYears != null).map((b) => b.expertYears!));
   const maxHours = Math.max(...benchmarks.map((b) => b.avgTaskHours));
 
   function isMax(val: number, max: number) {
@@ -37,7 +37,7 @@ export function ComparisonTable() {
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Eight benchmarks, ten dimensions, side by side. Leading values in each
-        column are set in bold. Click any row to expand. GDPVAL tasks were
+        column are set in bold. Click any row to expand. GDPval tasks were
         built by Parsewave.
       </p>
 
@@ -62,130 +62,135 @@ export function ComparisonTable() {
             {sorted.map((b, i) => {
               const isOpen = expanded === b.id;
               return (
-                <tr
-                  key={b.id}
-                  onClick={() => toggle(b.id)}
-                  className={`border-b border-[var(--rule)] cursor-pointer transition-colors ${
-                    isOpen
-                      ? "bg-[var(--surface-raised)]"
-                      : i % 2 === 1
+                <React.Fragment key={b.id}>
+                  <tr
+                    onClick={() => toggle(b.id)}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(b.id); } }}
+                    tabIndex={0}
+                    role="button"
+                    aria-expanded={isOpen}
+                    className={`border-b border-[var(--rule)] cursor-pointer transition-colors ${
+                      isOpen
                         ? "bg-[var(--surface-raised)]"
-                        : "hover:bg-[var(--surface-raised)]"
-                  }`}
-                >
-                  <td className="py-3 pr-1 text-center">
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      className={`inline-block transition-transform ${isOpen ? "rotate-180" : ""}`}
-                      fill="none"
-                      stroke="var(--ink-tertiary)"
-                      strokeWidth="1.5"
-                    >
-                      <path d="M3 4.5L6 7.5L9 4.5" />
-                    </svg>
-                  </td>
-                  <td className={`py-3 pr-4 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-3" : ""}`}>
-                    <span className={b.isGDPVAL ? "font-semibold" : ""}>{b.name}</span>
-                  </td>
-                  <td className="py-3 px-3 text-[var(--ink-secondary)]">
-                    {b.creator}
-                    {b.taskBuilder && (
-                      <div className="text-[10px] text-[var(--accent)] font-medium mt-0.5">
-                        Tasks by {b.taskBuilder}
-                      </div>
-                    )}
-                  </td>
-                  <td className={`py-3 px-3 text-right font-mono ${isMax(b.totalTasks, maxTasks) ? "font-semibold" : ""}`}>
-                    {b.totalTasks.toLocaleString()}
-                  </td>
-                  <td className={`py-3 px-3 text-right font-mono ${b.occupations > 0 && isMax(b.occupations, maxOccupations) ? "font-semibold" : ""}`}>
-                    {b.occupations === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.occupations}
-                  </td>
-                  <td className={`py-3 px-3 text-right font-mono ${b.industries > 0 && isMax(b.industries, maxIndustries) ? "font-semibold" : ""}`}>
-                    {b.industries === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.industries}
-                  </td>
-                  <td className={`py-3 px-3 text-right font-mono ${b.expertYears && isMax(b.expertYears, maxExpert) ? "font-semibold" : ""}`}>
-                    {b.expertYears ? b.expertYears : <span className="text-[var(--ink-tertiary)]">-</span>}
-                  </td>
-                  <td className={`py-3 px-3 text-right font-mono ${isMax(b.avgTaskHours, maxHours) ? "font-semibold" : ""}`}>
-                    {b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}
-                  </td>
-                  <td className="py-3 px-3 text-[var(--ink-secondary)] text-xs">
-                    {b.scoring}
-                  </td>
-                  <td className="py-3 px-3 text-center text-[var(--ink-secondary)]">
-                    {b.multiModal ? "Yes" : "No"}
-                  </td>
-                  <td className="py-3 pl-3 text-right font-mono text-xs">
-                    {b.fileTypes.length > 3
-                      ? `${b.fileTypes.length} types`
-                      : b.fileTypes.join(", ")}
-                  </td>
-                </tr>
+                        : i % 2 === 1
+                          ? "bg-[var(--surface-raised)]"
+                          : "hover:bg-[var(--surface-raised)]"
+                    }`}
+                  >
+                    <td className="py-3 pr-1 text-center">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        className={`inline-block transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="var(--ink-tertiary)"
+                        strokeWidth="1.5"
+                        aria-hidden="true"
+                      >
+                        <path d="M3 4.5L6 7.5L9 4.5" />
+                      </svg>
+                    </td>
+                    <td className={`py-3 pr-4 ${b.isGDPval ? "border-l-2 border-l-[var(--accent)] pl-3" : ""}`}>
+                      <span className={b.isGDPval ? "font-semibold" : ""}>{b.name}</span>
+                    </td>
+                    <td className="py-3 px-3 text-[var(--ink-secondary)]">
+                      {b.creator}
+                      {b.taskBuilder && (
+                        <div className="text-[10px] text-[var(--accent)] font-medium mt-0.5">
+                          Tasks by {b.taskBuilder}
+                        </div>
+                      )}
+                    </td>
+                    <td className={`py-3 px-3 text-right font-mono ${isMax(b.totalTasks, maxTasks) ? "font-semibold" : ""}`}>
+                      {b.totalTasks.toLocaleString()}
+                    </td>
+                    <td className={`py-3 px-3 text-right font-mono ${b.occupations > 0 && isMax(b.occupations, maxOccupations) ? "font-semibold" : ""}`}>
+                      {b.occupations === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.occupations}
+                    </td>
+                    <td className={`py-3 px-3 text-right font-mono ${b.industries > 0 && isMax(b.industries, maxIndustries) ? "font-semibold" : ""}`}>
+                      {b.industries === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.industries}
+                    </td>
+                    <td className={`py-3 px-3 text-right font-mono ${b.expertYears != null && isMax(b.expertYears, maxExpert) ? "font-semibold" : ""}`}>
+                      {b.expertYears != null ? b.expertYears : <span className="text-[var(--ink-tertiary)]">-</span>}
+                    </td>
+                    <td className={`py-3 px-3 text-right font-mono ${isMax(b.avgTaskHours, maxHours) ? "font-semibold" : ""}`}>
+                      {b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}
+                    </td>
+                    <td className="py-3 px-3 text-[var(--ink-secondary)] text-xs">
+                      {b.scoring}
+                    </td>
+                    <td className="py-3 px-3 text-center text-[var(--ink-secondary)]">
+                      {b.multiModal ? "Yes" : "No"}
+                    </td>
+                    <td className="py-3 pl-3 text-right font-mono text-xs">
+                      {b.fileTypes.length > 3
+                        ? `${b.fileTypes.length} types`
+                        : b.fileTypes.join(", ")}
+                    </td>
+                  </tr>
+                  {isOpen && (
+                    <tr>
+                      <td colSpan={11} className="p-0">
+                        <div className="p-5 bg-[var(--surface-raised)] border-t border-[var(--rule)]">
+                          {b.taskBuilder && (
+                            <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-2">
+                              All {b.totalTasks} tasks built by {b.taskBuilder}
+                            </p>
+                          )}
+                          <p className="font-serif italic text-[var(--ink)] mb-3">
+                            {b.tagline}
+                          </p>
+
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-sm text-[var(--ink-secondary)]">Top model:</span>
+                            <span className="font-mono text-sm font-medium">{b.topModel}</span>
+                            <div className="flex-1 max-w-48 h-1.5 bg-[var(--surface)] relative">
+                              <div
+                                className="h-full absolute left-0 top-0"
+                                style={{
+                                  width: `${b.topModelScore}%`,
+                                  backgroundColor: b.isGDPval ? "var(--accent)" : b.color,
+                                }}
+                              />
+                            </div>
+                            <span className="font-mono text-sm">{b.topModelScore}%</span>
+                          </div>
+
+                          <p className="text-sm text-[var(--ink-secondary)] leading-relaxed mb-3">
+                            {b.scoringDetail}
+                          </p>
+
+                          {b.strengths.length > 0 && (
+                            <div className="mb-3">
+                              <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Strengths: </span>
+                              <span className="text-xs text-[var(--ink-secondary)]">
+                                {b.strengths.join(". ")}.
+                              </span>
+                            </div>
+                          )}
+
+                          {b.domains.length > 0 && (
+                            <div>
+                              <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Domains: </span>
+                              <span className="text-xs text-[var(--ink-secondary)]">
+                                {b.domains.join(", ")}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
               );
             })}
           </tbody>
         </table>
       </div>
 
-      {expanded && (() => {
-        const b = benchmarks.find((x) => x.id === expanded);
-        if (!b) return null;
-        return (
-          <div className="mt-4 p-5 bg-[var(--surface-raised)] border border-[var(--rule)]">
-            {b.taskBuilder && (
-              <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-2">
-                All {b.totalTasks} tasks built by {b.taskBuilder}
-              </p>
-            )}
-            <p className="font-serif italic text-[var(--ink)] mb-3">
-              {b.tagline}
-            </p>
-
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-sm text-[var(--ink-secondary)]">Top model:</span>
-              <span className="font-mono text-sm font-medium">{b.topModel}</span>
-              <div className="flex-1 max-w-48 h-1.5 bg-[var(--surface)] relative">
-                <div
-                  className="h-full absolute left-0 top-0"
-                  style={{
-                    width: `${b.topModelScore}%`,
-                    backgroundColor: b.isGDPVAL ? "var(--accent)" : b.color,
-                  }}
-                />
-              </div>
-              <span className="font-mono text-sm">{b.topModelScore}%</span>
-            </div>
-
-            <p className="text-sm text-[var(--ink-secondary)] leading-relaxed mb-3">
-              {b.scoringDetail}
-            </p>
-
-            {b.strengths.length > 0 && (
-              <div className="mb-3">
-                <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Strengths: </span>
-                <span className="text-xs text-[var(--ink-secondary)]">
-                  {b.strengths.join(". ")}.
-                </span>
-              </div>
-            )}
-
-            {b.domains.length > 0 && (
-              <div>
-                <span className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider">Domains: </span>
-                <span className="text-xs text-[var(--ink-secondary)]">
-                  {b.domains.join(", ")}
-                </span>
-              </div>
-            )}
-          </div>
-        );
-      })()}
-
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 1 - Comparison of 8 AI evaluation benchmarks across key dimensions.
+        Fig. 2 - Comparison of 8 AI evaluation benchmarks across key dimensions.
         Leading value in each numeric column is bold. Dash indicates not applicable.
       </p>
     </section>

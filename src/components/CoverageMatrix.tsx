@@ -107,7 +107,7 @@ export function CoverageMatrix() {
             </table>
           </div>
           <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-            Fig. 4a - Industry coverage matrix across 12 sectors. GDPVAL (Parsewave tasks) covers 10 of 12.
+            Fig. 5a - Industry coverage matrix across 12 sectors. GDPval (Parsewave tasks) covers 10 of 12.
           </p>
         </Tabs.Content>
 
@@ -164,7 +164,7 @@ export function CoverageMatrix() {
           </div>
 
           <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4 mb-6">
-            Fig. 4b - File format support across 8 media categories.
+            Fig. 5b - File format support across 8 media categories.
           </p>
 
           <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">

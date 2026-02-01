@@ -1,7 +1,8 @@
 import { stakes, expertQuotes } from "@/data/research";
 
 export function TheStakes() {
-  const openaiQuote = expertQuotes.find((q) => q.attribution === "OpenAI")!;
+  const openaiQuote = expertQuotes.find((q) => q.attribution === "OpenAI");
+  if (!openaiQuote) return null;
 
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
@@ -56,7 +57,7 @@ export function TheStakes() {
           </a>
         </cite>
         <p className="text-xs text-[var(--ink-tertiary)] mt-3">
-          This is why OpenAI chose Parsewave to build GDPVAL's 214 professional evaluation tasks.
+          This is why OpenAI chose Parsewave to build GDPval's 214 professional evaluation tasks.
         </p>
       </blockquote>
     </section>

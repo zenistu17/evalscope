@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import DOMPurify from "dompurify";
 import { showcaseTasks, type ShowcaseTask, type TaskFile } from "@/data/showcaseTasks";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -48,11 +49,13 @@ function FileViewer({
   const [lightbox, setLightbox] = useState(false);
 
   useEffect(() => {
+    setHtmlContent(null);
+    setTextContent(null);
     if (file.viewPath && (file.type === "docx" || file.type === "xlsx")) {
       fetch(fileUrl(file.viewPath))
         .then((r) => r.text())
-        .then(setHtmlContent)
-        .catch(() => setHtmlContent("<p>Could not load document preview.</p>"));
+        .then((text) => setHtmlContent(DOMPurify.sanitize(text)))
+        .catch(() => setHtmlContent("Could not load document preview."));
     }
     if (file.type === "xml") {
       fetch(fileUrl(file.path))
@@ -60,7 +63,7 @@ function FileViewer({
         .then(setTextContent)
         .catch(() => setTextContent("Could not load XML content."));
     }
-  }, [file]);
+  }, [file.path, file.viewPath, file.type]);
 
   const src = fileUrl(file.path);
 
@@ -95,16 +98,24 @@ function FileViewer({
         {/* Image */}
         {(file.type === "png" || file.type === "jpg" || file.type === "jpeg") && (
           <>
-            <img
-              src={src}
-              alt={file.name}
-              className="max-w-full mx-auto p-4 cursor-zoom-in"
+            <button
+              type="button"
               onClick={() => setLightbox(true)}
-            />
+              className="block w-full p-4 bg-transparent border-none cursor-zoom-in"
+              aria-label={`Zoom ${file.name}`}
+            >
+              <img src={src} alt={file.name} className="max-w-full mx-auto" />
+            </button>
             {lightbox && (
               <div
+                role="dialog"
+                aria-modal="true"
+                aria-label="Image lightbox"
                 className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center cursor-zoom-out"
                 onClick={() => setLightbox(false)}
+                onKeyDown={(e) => { if (e.key === "Escape") setLightbox(false); }}
+                tabIndex={0}
+                ref={(el) => el?.focus()}
               >
                 <img src={src} alt={file.name} className="max-w-[90vw] max-h-[90vh] object-contain" />
               </div>
@@ -148,7 +159,7 @@ function FileViewer({
           </object>
         )}
 
-        {/* DOCX / XLSX (pre-converted HTML) */}
+        {/* DOCX / XLSX (pre-converted HTML, sanitized with DOMPurify) */}
         {(file.type === "docx" || file.type === "xlsx") && (
           htmlContent ? (
             <div
@@ -222,15 +233,22 @@ function FileGroup({
 function FullInstructions({ path }: { path: string }) {
   const [open, setOpen] = useState(false);
   const [html, setHtml] = useState<string | null>(null);
+  const fetched = useRef(false);
+
+  useEffect(() => {
+    fetched.current = false;
+    setHtml(null);
+  }, [path]);
 
   const load = useCallback(() => {
-    if (!html) {
+    if (!fetched.current) {
+      fetched.current = true;
       fetch(fileUrl(path))
         .then((r) => r.text())
-        .then(setHtml)
-        .catch(() => setHtml("<p>Could not load instructions.</p>"));
+        .then((text) => setHtml(DOMPurify.sanitize(text)))
+        .catch(() => setHtml("Could not load instructions."));
     }
-  }, [path, html]);
+  }, [path]);
 
   return (
     <div className="mt-3">
@@ -278,10 +296,11 @@ function TaskEntry({
     <div className="border-b border-[var(--rule)]">
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
         className={`w-full text-left py-4 flex items-center gap-4 transition-colors ${
           isOpen
-            ? "bg-[var(--surface-raised)] px-4 -mx-4"
-            : "hover:bg-[var(--surface-raised)] hover:px-4 hover:-mx-4"
+            ? "bg-[var(--surface-raised)]"
+            : "hover:bg-[var(--surface-raised)]"
         }`}
       >
         <svg
@@ -292,6 +311,7 @@ function TaskEntry({
           fill="none"
           stroke="var(--ink-tertiary)"
           strokeWidth="1.5"
+          aria-hidden="true"
         >
           <path d="M3 4.5L6 7.5L9 4.5" />
         </svg>
@@ -402,7 +422,7 @@ export function TaskShowcase() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        Six real GDPVAL tasks built by Parsewave, shown with their complete inputs,
+        Six real GDPval tasks built by Parsewave, shown with their complete inputs,
         rubrics, and expert solutions. Each is a professional deliverable spanning
         multiple file types, created by domain experts.
       </p>
@@ -419,7 +439,7 @@ export function TaskShowcase() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 2 - Six tasks across 6 occupations and 5 industries. Click any task to explore inputs, rubric, and solution files.
+        Fig. 3 - Six tasks across 6 occupations and 5 industries. Click any task to explore inputs, rubric, and solution files.
       </p>
     </section>
   );

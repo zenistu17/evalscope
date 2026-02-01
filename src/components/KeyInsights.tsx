@@ -1,5 +1,5 @@
 const stats = [
-  { value: "44", label: "occupations across 9 industries" },
+  { value: "36", label: "occupations across 9 industries" },
   { value: "7h", label: "average expert completion time" },
   { value: "17+", label: "file formats incl. video, audio, 3D" },
 ];

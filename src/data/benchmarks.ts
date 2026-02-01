@@ -45,11 +45,11 @@ export const benchmarks: Benchmark[] = [
     year: 2025,
     tagline: "The GDP of AI Evaluation",
     description:
-      "Real-world economically valuable tasks across 44 occupations in 9 GDP-dominant industries. Tests whether AI can produce professional-quality deliverables that real experts would sign off on.",
+      "Real-world economically valuable tasks across 36 occupations in 9 GDP-dominant industries. Tests whether AI can produce professional-quality deliverables that real experts would sign off on.",
     url: "https://parsewave.ai",
-    totalTasks: 220,
-    publicTasks: 220,
-    occupations: 44,
+    totalTasks: 214,
+    publicTasks: 214,
+    occupations: 36,
     industries: 9,
     domains: [
       "Finance & Insurance",
@@ -79,7 +79,7 @@ export const benchmarks: Benchmark[] = [
     color: "#1a56db",
     isGDPVAL: true,
     strengths: [
-      "Broadest occupational coverage (44 professions)",
+      "Broadest occupational coverage (36 professions)",
       "Highest expert experience (14 yr avg)",
       "True multi-modal (17+ file types incl. video, audio, 3D)",
       "Tests actual work deliverables, not just navigation",

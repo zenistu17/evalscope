@@ -38,7 +38,7 @@ export function WhyGDPVAL() {
             Breadth that matches the real economy
           </h3>
           <p>
-            GDPVAL spans 44 occupations across 9 GDP-contributing
+            GDPVAL spans 36 occupations across 9 GDP-contributing
             sectors&mdash;from financial advisors to video editors to
             procurement specialists. APEX covers 3&ndash;4 white-collar roles.
             WorkArena covers enterprise IT workflows. No other benchmark
@@ -103,7 +103,7 @@ export function WhyGDPVAL() {
       <div className="border-t border-[var(--rule)] mt-12 pt-8">
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
           GDPVAL is the only benchmark that comprehensively answers whether AI
-          can perform real professional work across 44 occupations, 9 industries,
+          can perform real professional work across 36 occupations, 9 industries,
           and 17+ media formats. The data above speaks for itself.
         </p>
         <div className="flex flex-wrap gap-6 mt-6">

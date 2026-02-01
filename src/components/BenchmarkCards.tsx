@@ -75,6 +75,11 @@ function BenchmarkEntry({
             <span className="text-xs text-[var(--ink-tertiary)] shrink-0">
               {b.creator}, {b.year}
             </span>
+            {b.taskBuilder && (
+              <span className="text-xs text-[var(--accent)] font-medium shrink-0">
+                Tasks by {b.taskBuilder}
+              </span>
+            )}
           </div>
           <p className="font-serif italic text-sm text-[var(--ink-secondary)] mt-0.5 truncate">
             {b.tagline}
@@ -84,6 +89,11 @@ function BenchmarkEntry({
 
       {isOpen && (
         <div className={`pb-5 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-5 ml-4" : "pl-8"}`}>
+          {b.taskBuilder && (
+            <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-2">
+              All {b.totalTasks} tasks built by {b.taskBuilder}
+            </p>
+          )}
           <p className="text-[var(--ink-secondary)] text-sm leading-relaxed mb-3">
             {b.description}
           </p>

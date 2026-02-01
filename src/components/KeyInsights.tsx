@@ -19,13 +19,14 @@ export function KeyInsights() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        State of AI Performance
+        What Our Tasks Revealed
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        The highest score any AI model has achieved on each benchmark. GDPVAL
-        tasks take 7-10 hours and test real professional deliverables -- not
-        multiple-choice questions or short answers.
+        Parsewave's 214 tasks for GDPVAL showed that the best AI model scores
+        just 74.1%. Here is how that compares across benchmarks -- our tasks
+        take 7-10 hours and test real professional deliverables, not
+        multiple-choice questions.
       </p>
 
       <div className="space-y-3">
@@ -57,7 +58,7 @@ export function KeyInsights() {
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
         Fig. 0 - Top model scores across 8 benchmarks. Higher is better.
-        GDPVAL highlighted in blue.
+        GDPVAL (Parsewave) highlighted in blue.
       </p>
     </section>
   );

@@ -15,7 +15,8 @@ export function TheStakes() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        Why measuring AI on real professional work matters now.
+        The AI evaluation market is massive and growing. Parsewave builds the
+        professional-grade tasks that measure real AI capability.
       </p>
 
       <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mb-10">
@@ -54,6 +55,9 @@ export function TheStakes() {
             {openaiQuote.source}
           </a>
         </cite>
+        <p className="text-xs text-[var(--ink-tertiary)] mt-3">
+          This is why OpenAI chose Parsewave to build GDPVAL's 214 professional evaluation tasks.
+        </p>
       </blockquote>
     </section>
   );

@@ -39,7 +39,7 @@ export function RadarComparison() {
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Six evaluation dimensions, scored 0-100. Toggle benchmarks to compare
-        against GDPVAL.
+        against GDPVAL (built by Parsewave).
       </p>
 
       <div className="grid lg:grid-cols-[1fr_260px] gap-8">
@@ -85,7 +85,7 @@ export function RadarComparison() {
           </ResponsiveContainer>
 
           <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-            Fig. 3  - Radar comparison across 6 evaluation dimensions. GDPVAL shown solid, competitors dashed.
+            Fig. 3  - Radar comparison across 6 evaluation dimensions. GDPVAL (Parsewave) shown solid, competitors dashed.
           </p>
         </div>
 

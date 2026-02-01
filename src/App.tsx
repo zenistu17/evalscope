@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { KeyInsights } from "@/components/KeyInsights";
 import { ComparisonTable } from "@/components/ComparisonTable";
-import { WhyGDPVAL } from "@/components/WhyGDPVAL";
+import { WhyParsewave } from "@/components/WhyParsewave";
 import { TaskShowcase } from "@/components/TaskShowcase";
 import { RadarComparison } from "@/components/RadarComparison";
 import { CoverageMatrix } from "@/components/CoverageMatrix";
@@ -25,18 +25,19 @@ function App() {
       {/* Pull quote */}
       <div className="mx-auto max-w-5xl px-6 py-12 text-center">
         <div className="font-mono text-6xl font-medium text-[var(--accent)] mb-3">
-          74.1%
+          214
         </div>
-        <p className="font-serif italic text-lg text-[var(--ink-secondary)] max-w-md mx-auto mb-2">
-          The best AI model's score on GDPVAL. Real professional work remains beyond reach.
+        <p className="font-serif italic text-lg text-[var(--ink-secondary)] max-w-lg mx-auto mb-2">
+          Professional-grade tasks. 36 occupations. 17+ file types. The work
+          that set the industry standard for AI evaluation.
         </p>
         <p className="font-mono text-xs text-[var(--ink-tertiary)]">
-          GPT-5.2 Pro -- highest scoring model
+          Built by Parsewave for OpenAI's GDPVAL
         </p>
       </div>
 
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
-      <WhyGDPVAL />
+      <WhyParsewave />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <TaskShowcase />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>

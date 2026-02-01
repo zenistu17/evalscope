@@ -9,12 +9,12 @@ export function BenchmarkCritique() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        What Others Get Wrong
+        Problems Our Methodology Solves
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        Documented issues with competing benchmarks, from their own papers and
-        independent researchers.
+        Documented issues with competing benchmark methodologies that
+        Parsewave's approach was designed to avoid.
       </p>
 
       <div className="space-y-8">
@@ -44,11 +44,12 @@ export function BenchmarkCritique() {
 
       <div className="mt-10 pt-6 border-t border-[var(--rule)]">
         <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
-          GDPVAL addresses these issues with multi-criteria rubric scoring (up
-          to 40 points per task), expert-validated deliverables reviewed by
-          professionals with 14 years average experience, and evaluation across
-          36 occupations in 9 industries using 17+ file formats. Parsewave
-          builds every task.
+          Parsewave's methodology addresses every one of these issues:
+          multi-criteria rubric scoring (up to 40 points per task),
+          expert-validated deliverables reviewed by professionals with 14 years
+          average experience, and evaluation across 36 occupations in 9
+          industries using 17+ file formats. This is the standard we bring to
+          every engagement.
         </p>
       </div>
     </section>

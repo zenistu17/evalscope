@@ -107,7 +107,7 @@ export function CoverageMatrix() {
             </table>
           </div>
           <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-            Fig. 4a - Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
+            Fig. 4a - Industry coverage matrix across 12 sectors. GDPVAL (Parsewave tasks) covers 10 of 12.
           </p>
         </Tabs.Content>
 

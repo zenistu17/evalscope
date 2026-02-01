@@ -9,11 +9,11 @@ export function InThePress() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        In the Press
+        What the Press Says About Our Work
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        What industry observers are saying about GDPVAL.
+        Industry coverage of GDPVAL -- the benchmark built on Parsewave's tasks.
       </p>
 
       <div className="space-y-8">

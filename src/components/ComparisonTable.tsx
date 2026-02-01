@@ -37,7 +37,8 @@ export function ComparisonTable() {
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
         Eight benchmarks, ten dimensions, side by side. Leading values in each
-        column are set in bold. Click any row to expand.
+        column are set in bold. Click any row to expand. GDPVAL tasks were
+        built by Parsewave.
       </p>
 
       <div className="overflow-x-auto">
@@ -88,7 +89,14 @@ export function ComparisonTable() {
                   <td className={`py-3 pr-4 ${b.isGDPVAL ? "border-l-2 border-l-[var(--accent)] pl-3" : ""}`}>
                     <span className={b.isGDPVAL ? "font-semibold" : ""}>{b.name}</span>
                   </td>
-                  <td className="py-3 px-3 text-[var(--ink-secondary)]">{b.creator}</td>
+                  <td className="py-3 px-3 text-[var(--ink-secondary)]">
+                    {b.creator}
+                    {b.taskBuilder && (
+                      <div className="text-[10px] text-[var(--accent)] font-medium mt-0.5">
+                        Tasks by {b.taskBuilder}
+                      </div>
+                    )}
+                  </td>
                   <td className={`py-3 px-3 text-right font-mono ${isMax(b.totalTasks, maxTasks) ? "font-semibold" : ""}`}>
                     {b.totalTasks.toLocaleString()}
                   </td>
@@ -127,6 +135,11 @@ export function ComparisonTable() {
         if (!b) return null;
         return (
           <div className="mt-4 p-5 bg-[var(--surface-raised)] border border-[var(--rule)]">
+            {b.taskBuilder && (
+              <p className="text-xs font-medium text-[var(--accent)] uppercase tracking-wider mb-2">
+                All {b.totalTasks} tasks built by {b.taskBuilder}
+              </p>
+            )}
             <p className="font-serif italic text-[var(--ink)] mb-3">
               {b.tagline}
             </p>

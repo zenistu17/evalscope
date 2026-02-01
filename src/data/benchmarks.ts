@@ -3,6 +3,7 @@ export interface Benchmark {
   name: string;
   shortName: string;
   creator: string;
+  taskBuilder: string | null;
   year: number;
   tagline: string;
   description: string;
@@ -42,6 +43,7 @@ export const benchmarks: Benchmark[] = [
     name: "GDPVAL",
     shortName: "GDPVAL",
     creator: "OpenAI",
+    taskBuilder: "Parsewave",
     year: 2025,
     tagline: "The GDP of AI Evaluation",
     description:
@@ -102,6 +104,7 @@ export const benchmarks: Benchmark[] = [
     name: "APEX-Agents",
     shortName: "APEX-A",
     creator: "Mercor",
+    taskBuilder: null,
     year: 2026,
     tagline: "Simulated Office Work",
     description:
@@ -150,6 +153,7 @@ export const benchmarks: Benchmark[] = [
     name: "APEX v1.0",
     shortName: "APEX-1",
     creator: "Mercor",
+    taskBuilder: null,
     year: 2025,
     tagline: "White-Collar Knowledge Test",
     description:
@@ -197,6 +201,7 @@ export const benchmarks: Benchmark[] = [
     name: "WorkArena",
     shortName: "WArena",
     creator: "ServiceNow",
+    taskBuilder: null,
     year: 2024,
     tagline: "Enterprise Knowledge Work",
     description:
@@ -244,6 +249,7 @@ export const benchmarks: Benchmark[] = [
     name: "GAIA",
     shortName: "GAIA",
     creator: "Meta + HuggingFace",
+    taskBuilder: null,
     year: 2023,
     tagline: "General AI Quiz",
     description:
@@ -291,6 +297,7 @@ export const benchmarks: Benchmark[] = [
     name: "Humanity's Last Exam",
     shortName: "HLE",
     creator: "CAIS + Scale AI",
+    taskBuilder: null,
     year: 2025,
     tagline: "Hardest Academic Questions",
     description:
@@ -337,6 +344,7 @@ export const benchmarks: Benchmark[] = [
     name: "Tau-Bench",
     shortName: "T-Bench",
     creator: "Sierra",
+    taskBuilder: null,
     year: 2024,
     tagline: "Customer Service Bot Test",
     description:
@@ -383,6 +391,7 @@ export const benchmarks: Benchmark[] = [
     name: "OSWorld",
     shortName: "OSW",
     creator: "HKU + Salesforce",
+    taskBuilder: null,
     year: 2024,
     tagline: "Real Computer Environment",
     description:

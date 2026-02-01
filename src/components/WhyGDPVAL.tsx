@@ -41,7 +41,7 @@ export function WhyGDPVAL() {
             GDPVAL spans 36 occupations across 9 GDP-contributing
             sectors&mdash;from financial advisors to video editors to
             procurement specialists. APEX covers 3&ndash;4 white-collar roles.
-            SWE-Bench covers only software engineering. No other benchmark
+            WorkArena covers enterprise IT workflows. No other benchmark
             captures the diversity of how AI will actually impact the workforce.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function WhyGDPVAL() {
             GDPVAL tasks involve 17+ file types: spreadsheets, PDFs, video
             files, audio recordings, 3D models (STL/USDZ), presentation decks,
             and more. Competitors are either text-only (HLE, &tau;-bench),
-            code-only (SWE-Bench), or limited to documents and spreadsheets
+            browser-only (WorkArena), or limited to documents and spreadsheets
             (APEX). Real professional work is inherently multi-modal.
           </p>
         </div>

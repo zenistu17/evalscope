@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="mx-auto max-w-5xl px-6 pt-16 pb-20">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">09</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">10</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 

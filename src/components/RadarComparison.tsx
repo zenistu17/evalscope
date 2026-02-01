@@ -10,7 +10,7 @@ import {
 import { benchmarks, comparisonDimensions } from "@/data/benchmarks";
 
 export function RadarComparison() {
-  const [selected, setSelected] = useState<string[]>(["apex-agents", "swe-bench-pro", "gaia"]);
+  const [selected, setSelected] = useState<string[]>(["apex-agents", "workarena", "gaia"]);
 
   const data = comparisonDimensions.map((dim) => ({
     dimension: dim.label,

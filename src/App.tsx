@@ -7,6 +7,7 @@ import { IndustryHeatmap } from "@/components/IndustryHeatmap";
 import { FileTypeMatrix } from "@/components/FileTypeMatrix";
 import { TaskQualityComparison } from "@/components/TaskQualityComparison";
 import { WhyGDPVAL } from "@/components/WhyGDPVAL";
+import { TaskShowcase } from "@/components/TaskShowcase";
 import { Footer } from "@/components/Footer";
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
       <TaskQualityComparison />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <WhyGDPVAL />
+      <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
+      <TaskShowcase />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <Footer />
     </div>

@@ -17,8 +17,13 @@ function App() {
   return (
     <div className="relative min-h-screen bg-[var(--surface)] text-[var(--ink)]">
       <div
-        className="pointer-events-none fixed inset-x-0 bottom-0 h-[400px] bg-bottom bg-repeat-x opacity-40"
-        style={{ backgroundImage: `url(${base}led-matrix.png)` }}
+        className="pointer-events-none absolute inset-x-0 top-0 h-[500px] bg-top bg-repeat-x"
+        style={{
+          backgroundImage: `url(${base}led-matrix.png)`,
+          transform: "scaleY(-1)",
+          maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+        }}
       />
       <div className="relative z-10">
       <Hero />

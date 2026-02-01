@@ -9,7 +9,7 @@ export function Footer() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        Methodology &amp; Sources
+        Methodology & Sources
       </h2>
 
       <div className="grid md:grid-cols-[1.2fr_1fr] gap-10">
@@ -25,7 +25,7 @@ export function Footer() {
               the most authoritative (official leaderboard or paper) was used.
             </p>
             <p>
-              Radar scores are normalized 0&ndash;100 ratings derived from
+              Radar scores are normalized 0-100 ratings derived from
               quantitative metrics (task count, occupational breadth, file type
               diversity) and qualitative assessment (scoring granularity,
               real-world applicability). These scores are editorial judgments
@@ -33,7 +33,7 @@ export function Footer() {
             </p>
             <p>
               Industry and file-type coverage matrices reflect documented support
-              in each benchmark&rsquo;s official dataset or publications. &ldquo;Coverage&rdquo;
+              in each benchmark's official dataset or publications. "Coverage"
               means at least one task or example exists in that category.
             </p>
           </div>
@@ -69,10 +69,18 @@ export function Footer() {
       <div className="border-t border-[var(--rule)] mt-12 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-baseline gap-2">
           <span className="text-sm font-medium">EvalScope</span>
-          <span className="text-xs text-[var(--ink-tertiary)]">by Parsewave.ai</span>
+          <span className="text-xs text-[var(--ink-tertiary)]">by</span>
+          <a
+            href="https://parsewave.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium text-[var(--accent)] hover:underline"
+          >
+            Parsewave
+          </a>
         </div>
         <p className="font-mono text-[11px] text-[var(--ink-tertiary)]">
-          Last updated February 2026 &middot; Data version 2.1
+          Last updated February 2026
         </p>
       </div>
     </footer>

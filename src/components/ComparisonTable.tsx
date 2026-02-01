@@ -62,13 +62,13 @@ export function ComparisonTable() {
                   {b.totalTasks.toLocaleString()}
                 </td>
                 <td className={`py-3 px-3 text-right font-mono ${b.occupations > 0 && isMax(b.occupations, maxOccupations) ? "font-semibold" : ""}`}>
-                  {b.occupations === 0 ? <span className="text-[var(--ink-tertiary)]">&mdash;</span> : b.occupations}
+                  {b.occupations === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.occupations}
                 </td>
                 <td className={`py-3 px-3 text-right font-mono ${b.industries > 0 && isMax(b.industries, maxIndustries) ? "font-semibold" : ""}`}>
-                  {b.industries === 0 ? <span className="text-[var(--ink-tertiary)]">&mdash;</span> : b.industries}
+                  {b.industries === 0 ? <span className="text-[var(--ink-tertiary)]">-</span> : b.industries}
                 </td>
                 <td className={`py-3 px-3 text-right font-mono ${b.expertYears && isMax(b.expertYears, maxExpert) ? "font-semibold" : ""}`}>
-                  {b.expertYears ? b.expertYears : <span className="text-[var(--ink-tertiary)]">&mdash;</span>}
+                  {b.expertYears ? b.expertYears : <span className="text-[var(--ink-tertiary)]">-</span>}
                 </td>
                 <td className={`py-3 px-3 text-right font-mono ${isMax(b.avgTaskHours, maxHours) ? "font-semibold" : ""}`}>
                   {b.avgTaskHours < 1 ? `${Math.round(b.avgTaskHours * 60)}m` : `${b.avgTaskHours}h`}
@@ -91,7 +91,7 @@ export function ComparisonTable() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 1 &mdash; Comparison of 8 AI evaluation benchmarks across key dimensions.
+        Fig. 1 - Comparison of 8 AI evaluation benchmarks across key dimensions.
         Leading value in each numeric column is bold. Dash indicates not applicable.
       </p>
     </section>

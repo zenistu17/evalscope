@@ -80,7 +80,7 @@ export function FileTypeMatrix() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4 mb-6">
-        Fig. 4 &mdash; File format support across 8 media categories.
+        Fig. 4  - File format support across 8 media categories.
       </p>
 
       <h3 className="text-xs font-medium text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">

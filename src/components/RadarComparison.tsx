@@ -38,7 +38,7 @@ export function RadarComparison() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        Six evaluation dimensions, scored 0&ndash;100. Toggle benchmarks to compare
+        Six evaluation dimensions, scored 0-100. Toggle benchmarks to compare
         against GDPVAL.
       </p>
 
@@ -85,7 +85,7 @@ export function RadarComparison() {
           </ResponsiveContainer>
 
           <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-            Fig. 2 &mdash; Radar comparison across 6 evaluation dimensions. GDPVAL shown solid, competitors dashed.
+            Fig. 2  - Radar comparison across 6 evaluation dimensions. GDPVAL shown solid, competitors dashed.
           </p>
         </div>
 

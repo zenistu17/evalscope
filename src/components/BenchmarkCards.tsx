@@ -14,7 +14,7 @@ export function BenchmarkCards() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-6">
-        A closer look at each framework &mdash; what it tests, how it scores,
+        A closer look at each framework  - what it tests, how it scores,
         and where it falls short.
       </p>
 
@@ -83,7 +83,7 @@ function BenchmarkEntry({ benchmark: b }: { benchmark: Benchmark }) {
           rel="noopener noreferrer"
           className="text-xs text-[var(--accent)] hover:text-[var(--accent-strong)] transition-colors"
         >
-          {b.url.replace("https://", "").split("/").slice(0, 2).join("/")} &rarr;
+          {b.url.replace("https://", "").split("/").slice(0, 2).join("/")} {'->'}
         </a>
       </div>
     </article>

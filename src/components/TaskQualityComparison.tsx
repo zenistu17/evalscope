@@ -135,7 +135,7 @@ export function TaskQualityComparison() {
       </ResponsiveContainer>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        {caption} &mdash; {title.toLowerCase()}. GDPVAL highlighted in blue.
+        {caption}  - {title.toLowerCase()}. GDPVAL highlighted in blue.
       </p>
     </section>
   );

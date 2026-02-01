@@ -81,7 +81,7 @@ export function IndustryHeatmap() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-4">
-        Fig. 3 &mdash; Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
+        Fig. 3  - Industry coverage matrix across 12 sectors. GDPVAL covers 10 of 12.
       </p>
     </section>
   );

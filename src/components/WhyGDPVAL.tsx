@@ -7,7 +7,7 @@ export function WhyGDPVAL() {
       </div>
 
       <h2 className="font-serif text-[2rem] tracking-[-0.01em] mb-4">
-        Editorial Analysis
+        Why GDPVAL
       </h2>
 
       <blockquote className="border-l-2 border-[var(--accent)] pl-6 mb-8">
@@ -25,11 +25,11 @@ export function WhyGDPVAL() {
           </h3>
           <p>
             Every GDPVAL task is created by professionals with an average of 14
-            years in their field&mdash;accountants, nurses, film editors,
-            engineers, lawyers. Mercor&rsquo;s APEX tasks are created by experts
+            years in their field -accountants, nurses, film editors,
+            engineers, lawyers. Mercor's APEX tasks are created by experts
             with 7.25 years average experience. Academic benchmarks like HLE and
             GAIA use crowd-sourced or researcher-created questions that
-            don&rsquo;t reflect real job functions.
+            don't reflect real job functions.
           </p>
         </div>
 
@@ -39,8 +39,8 @@ export function WhyGDPVAL() {
           </h3>
           <p>
             GDPVAL spans 36 occupations across 9 GDP-contributing
-            sectors&mdash;from financial advisors to video editors to
-            procurement specialists. APEX covers 3&ndash;4 white-collar roles.
+            sectors -from financial advisors to video editors to
+            procurement specialists. APEX covers 3-4 white-collar roles.
             WorkArena covers enterprise IT workflows. No other benchmark
             captures the diversity of how AI will actually impact the workforce.
           </p>
@@ -53,7 +53,7 @@ export function WhyGDPVAL() {
           <p>
             GDPVAL tasks involve 17+ file types: spreadsheets, PDFs, video
             files, audio recordings, 3D models (STL/USDZ), presentation decks,
-            and more. Competitors are either text-only (HLE, &tau;-bench),
+            and more. Competitors are either text-only (HLE, Tau-Bench),
             browser-only (WorkArena), or limited to documents and spreadsheets
             (APEX). Real professional work is inherently multi-modal.
           </p>
@@ -101,35 +101,27 @@ export function WhyGDPVAL() {
       </div>
 
       <div className="border-t border-[var(--rule)] mt-12 pt-8">
-        <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
+        <p className="text-sm text-[var(--ink-secondary)] leading-relaxed max-w-2xl">
           GDPVAL is the only benchmark that comprehensively answers whether AI
           can perform real professional work across 36 occupations, 9 industries,
-          and 17+ media formats. The data above speaks for itself.
+          and 17+ media formats. Parsewave built it. OpenAI adopted it.
         </p>
-        <div className="flex flex-wrap gap-6 mt-6">
+        <div className="flex flex-wrap items-center gap-6 mt-6">
+          <a
+            href="https://parsewave.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-5 py-2.5 bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            Get in touch
+          </a>
           <a
             href="https://parsewave.ai"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-[var(--accent)] hover:underline"
           >
-            parsewave.ai &rarr;
-          </a>
-          <a
-            href="https://huggingface.co/datasets/openai/gdpval"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-[var(--accent)] hover:underline"
-          >
-            GDPVAL on HuggingFace &rarr;
-          </a>
-          <a
-            href="https://evals.openai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-[var(--accent)] hover:underline"
-          >
-            Automated Grader &rarr;
+            parsewave.ai {'->'}
           </a>
         </div>
       </div>

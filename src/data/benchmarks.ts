@@ -66,7 +66,7 @@ export const benchmarks: Benchmark[] = [
     avgTaskHours: 7.0,
     scoring: "Multi-criteria Rubric",
     scoringDetail:
-      "Multi-criteria rubric (10\u201340 points) with specific quality levels per criterion. Oracle + 4 model evaluations per task. Captures partial credit and nuanced quality.",
+      "Multi-criteria rubric (10-40 points) with specific quality levels per criterion. Oracle + 4 model evaluations per task. Captures partial credit and nuanced quality.",
     multiModal: true,
     fileTypes: [
       "PDF", "XLSX", "DOCX", "MP4", "MP3", "WAV", "PNG", "JPG",
@@ -116,7 +116,7 @@ export const benchmarks: Benchmark[] = [
     avgTaskHours: 1.82,
     scoring: "Binary Pass/Fail",
     scoringDetail:
-      "Each task has 1\u201310 binary criteria (Met/Not Met). Pass@1 = probability all criteria pass in a single run.",
+      "Each task has 1-10 binary criteria (Met/Not Met). Pass@1 = probability all criteria pass in a single run.",
     multiModal: true,
     fileTypes: ["PDF", "XLSX", "DOCX", "PPTX", "Calendar", "Chat", "Mail"],
     openSource: true,
@@ -288,7 +288,7 @@ export const benchmarks: Benchmark[] = [
   },
   {
     id: "hle",
-    name: "Humanity\u2019s Last Exam",
+    name: "Humanity's Last Exam",
     shortName: "HLE",
     creator: "CAIS + Scale AI",
     year: 2025,
@@ -448,18 +448,18 @@ export interface IndustryCoverage {
 }
 
 export const industryCoverage: IndustryCoverage[] = [
-  { industry: "Finance & Insurance", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Healthcare", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Legal", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Engineering & Mfg", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Media & Creative", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Software & IT", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": true, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "OSWorld": true } },
-  { industry: "Government & Admin", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Real Estate", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Consulting", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Customer Service", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": true, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": true, "OSWorld": false } },
-  { industry: "Education", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "OSWorld": false } },
-  { industry: "Academic Research", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Finance & Insurance", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Healthcare", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Legal", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Engineering & Mfg", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Media & Creative", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Software & IT", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": true, "GAIA": true, "Humanity's Last Exam": true, "Tau-Bench": false, "OSWorld": true } },
+  { industry: "Government & Admin", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Real Estate", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Consulting", benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Customer Service", benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": true, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": true, "OSWorld": false } },
+  { industry: "Education", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": true, "Tau-Bench": false, "OSWorld": false } },
+  { industry: "Academic Research", benchmarks: { "GDPVAL": false, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": true, "Tau-Bench": false, "OSWorld": false } },
 ];
 
 export interface FileTypeBucket {
@@ -469,14 +469,14 @@ export interface FileTypeBucket {
 }
 
 export const fileTypeBuckets: FileTypeBucket[] = [
-  { category: "Documents", types: ["PDF", "DOCX", "TXT"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
-  { category: "Spreadsheets", types: ["XLSX", "CSV"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
-  { category: "Presentations", types: ["PPTX"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
-  { category: "Video", types: ["MP4"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { category: "Audio", types: ["MP3", "WAV"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { category: "Images", types: ["PNG", "JPG", "SVG"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": true, "Tau-Bench": false, "OSWorld": true } },
-  { category: "3D Models", types: ["STL", "USDZ"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
-  { category: "Code", types: ["PY", "JS", "DART"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity\u2019s Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
+  { category: "Documents", types: ["PDF", "DOCX", "TXT"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
+  { category: "Spreadsheets", types: ["XLSX", "CSV"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": true, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
+  { category: "Presentations", types: ["PPTX"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
+  { category: "Video", types: ["MP4"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { category: "Audio", types: ["MP3", "WAV"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { category: "Images", types: ["PNG", "JPG", "SVG"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": true, "Tau-Bench": false, "OSWorld": true } },
+  { category: "3D Models", types: ["STL", "USDZ"], benchmarks: { "GDPVAL": true, "APEX-Agents": false, "APEX v1.0": false, "WorkArena": false, "GAIA": false, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": false } },
+  { category: "Code", types: ["PY", "JS", "DART"], benchmarks: { "GDPVAL": true, "APEX-Agents": true, "APEX v1.0": false, "WorkArena": false, "GAIA": true, "Humanity's Last Exam": false, "Tau-Bench": false, "OSWorld": true } },
 ];
 
 export const sources = [
@@ -486,7 +486,7 @@ export const sources = [
   { id: 4, label: "APEX v1.0", url: "https://arxiv.org/abs/2509.25721" },
   { id: 5, label: "WorkArena", url: "https://github.com/ServiceNow/WorkArena" },
   { id: 6, label: "GAIA", url: "https://huggingface.co/papers/2311.12983" },
-  { id: 7, label: "Humanity\u2019s Last Exam", url: "https://scale.com/leaderboard/humanitys_last_exam" },
+  { id: 7, label: "Humanity's Last Exam", url: "https://scale.com/leaderboard/humanitys_last_exam" },
   { id: 8, label: "Tau-Bench", url: "https://sierra.ai/blog/benchmarking-ai-agents" },
   { id: 9, label: "OSWorld", url: "https://os-world.github.io/" },
   { id: 10, label: "Artificial Analysis Intelligence Index", url: "https://artificialanalysis.ai/text/intelligence-index" },

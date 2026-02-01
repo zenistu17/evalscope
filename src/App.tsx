@@ -11,9 +11,16 @@ import { BenchmarkCards } from "@/components/BenchmarkCards";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
+const base = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
+    <div className="relative min-h-screen bg-[var(--surface)] text-[var(--ink)]">
+      <div
+        className="pointer-events-none fixed inset-x-0 bottom-0 h-[400px] bg-bottom bg-repeat-x opacity-40"
+        style={{ backgroundImage: `url(${base}led-matrix.png)` }}
+      />
+      <div className="relative z-10">
       <Hero />
       <KeyInsights />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
@@ -36,6 +43,7 @@ function App() {
       <CTASection />
       <div className="mx-auto max-w-5xl px-6"><div className="border-b border-[var(--rule)]" /></div>
       <Footer />
+      </div>
     </div>
   );
 }

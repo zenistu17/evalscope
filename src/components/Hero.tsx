@@ -1,9 +1,19 @@
+const base = import.meta.env.BASE_URL;
+
 export function Hero() {
   return (
     <header className="mx-auto max-w-5xl px-6 pt-16 pb-6">
-      <div className="border-b border-[var(--rule)] pb-4 mb-10 flex items-baseline justify-between">
+      <div className="border-b border-[var(--rule)] pb-4 mb-10 flex items-center justify-between">
         <span className="text-sm font-medium tracking-wide">EvalScope</span>
-        <span className="text-xs text-[var(--ink-tertiary)]">by Parsewave</span>
+        <a
+          href="https://parsewave.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <img src={`${base}parsewave-logo.png`} alt="Parsewave" className="h-5 w-5" />
+          <img src={`${base}parsewave-text.png`} alt="Parsewave" className="h-3.5" />
+        </a>
       </div>
 
       <h1 className="font-serif text-[3.5rem] sm:text-[4.5rem] leading-[1.05] tracking-[-0.02em] mb-6">

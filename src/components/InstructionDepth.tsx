@@ -8,7 +8,7 @@ export function InstructionDepth() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">02</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">03</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -168,7 +168,7 @@ export function InstructionDepth() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 2 - Distribution of instruction word counts
+        Fig. 3 - Distribution of instruction word counts
         across {taskQualityData.totalTasks} tasks. Word counts exclude rubric
         content.
       </p>

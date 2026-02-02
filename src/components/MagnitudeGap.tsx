@@ -83,7 +83,7 @@ export function MagnitudeGap() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">01</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">02</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -94,10 +94,11 @@ export function MagnitudeGap() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-10">
-        Academic benchmarks measure pattern recognition through text-only
-        questions with binary scoring. Parsewave tasks reproduce professional
-        deliverables with multi-file inputs, domain-specific rubrics, and graded
-        quality levels.
+        Beyond the GDPval comparison, Parsewave tasks differ even more
+        dramatically from academic AI benchmarks. These benchmarks measure
+        pattern recognition through text-only questions with binary scoring.
+        Parsewave tasks reproduce professional deliverables with multi-file
+        inputs, domain-specific rubrics, and graded quality levels.
       </p>
 
       {/* Column headers */}
@@ -164,9 +165,9 @@ export function MagnitudeGap() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-8">
-        Fig. 1 - Structural comparison between industry AI benchmarks
+        Fig. 2 - Structural comparison between industry AI benchmarks
         (MMLU, GAIA, HLE, SWE-bench, GPQA) and Parsewave evaluation tasks.
-        Benchmark averages computed from published specifications.
+        Benchmark statistics estimated from published datasets and papers.
       </p>
     </section>
   );

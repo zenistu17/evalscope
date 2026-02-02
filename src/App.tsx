@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { GdpvalComparison } from "@/components/GdpvalComparison";
 import { MagnitudeGap } from "@/components/MagnitudeGap";
 import { InstructionDepth } from "@/components/InstructionDepth";
 import { DataAndDeliverables } from "@/components/DataAndDeliverables";
@@ -18,6 +19,8 @@ function App() {
   return (
     <div className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
       <Hero />
+      <GdpvalComparison />
+      <Divider />
       <MagnitudeGap />
       <Divider />
       <InstructionDepth />

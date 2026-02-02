@@ -6,7 +6,7 @@ export function Methodology() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">07</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -76,11 +76,11 @@ export function Methodology() {
           available for inspection.
         </p>
         <p className="text-[var(--ink-secondary)] leading-relaxed">
-          The comparison with industry benchmarks is structural, not evaluative.
-          Academic benchmarks serve a different purpose (measuring knowledge and
-          reasoning). Parsewave tasks measure a different capability: performing
-          professional work with real files and domain-specific quality
-          standards.
+          The comparison with GDPval is structural, not evaluative. Both
+          datasets serve the same purpose: evaluating AI on professional work.
+          The differences in file complexity, rubric design, and evaluation
+          methodology reflect different design philosophies. GDPval data is
+          sourced from the public HuggingFace dataset and published paper.
         </p>
       </div>
     </section>

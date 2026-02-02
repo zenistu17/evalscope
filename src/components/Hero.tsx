@@ -32,9 +32,9 @@ export function Hero() {
 
       <p className="text-lg text-[var(--ink-secondary)] max-w-xl leading-relaxed mb-6">
         {totalTasks} tasks spanning {keyMetrics.uniqueOccupations} occupations
-        across {keyMetrics.uniqueSectors} industry sectors. Each designed by
-        domain experts, scored with multi-criteria rubrics that capture work
-        quality - not just correctness.
+        across {keyMetrics.uniqueSectors} industry sectors. Structurally more
+        complex than existing professional-task benchmarks, with multi-criteria
+        rubrics that capture work quality - not just correctness.
       </p>
 
       <div className="flex flex-wrap items-center gap-6 text-xs text-[var(--ink-tertiary)]">

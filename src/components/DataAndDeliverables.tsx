@@ -71,7 +71,7 @@ export function DataAndDeliverables() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">03</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -187,15 +187,17 @@ export function DataAndDeliverables() {
         {/* Comparison */}
         <div className="flex items-start gap-4 p-4 border-l-2 border-[var(--accent)] mt-6">
           <p className="text-sm text-[var(--ink-secondary)]">
-            Industry benchmark tasks expect a single text answer or letter
-            choice. Parsewave tasks produce the same multi-file deliverables a
-            professional would create on the job.
+            GDPval tasks average 1.54 deliverable files per task. Parsewave
+            tasks average {stats.solutionFilesPerTask.mean} files, reflecting
+            the multi-artifact nature of professional work. {stats.percentTextOnly}%
+            of tasks are text-only, reflecting occupations where deliverables are
+            written analysis, legal briefs, or policy documents.
           </p>
         </div>
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 3 - File type categories and solution deliverable structure.
+        Fig. 4 - File type categories and solution deliverable structure.
         Category counts reflect tasks using at least one file type in
         that category.
       </p>

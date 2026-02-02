@@ -17,18 +17,10 @@ export function OccupationCoverage() {
       return { name, count, sector: task?.sector || "" };
     });
 
-  // Duration range
-  const { estimatedHours } = stats;
-  const minHoursLabel =
-    estimatedHours.min < 1
-      ? `${Math.round(estimatedHours.min * 60)} min`
-      : `${estimatedHours.min} hr`;
-  const maxHoursLabel = `${estimatedHours.max} hr`;
-
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -38,9 +30,10 @@ export function OccupationCoverage() {
       </h2>
 
       <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-        Tasks range from {minHoursLabel} data entry to {maxHoursLabel} legal
-        research, reflecting the real diversity of professional work. Each task
-        is designed by a domain expert with industry experience.
+        All tasks are designed with a 7+ hour minimum professional effort
+        threshold, ensuring each task represents substantive work requiring
+        domain expertise. GDPval covers {44} occupations across the same 9
+        sectors.
       </p>
 
       {/* Sector bars */}
@@ -98,9 +91,9 @@ export function OccupationCoverage() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 5 - Sector and occupation distribution
-        across {taskQualityData.totalTasks} tasks. Avg estimated task duration:{" "}
-        {keyMetrics.avgEstimatedHours} hours.
+        Fig. 6 - Sector and occupation distribution
+        across {taskQualityData.totalTasks} tasks. Minimum task effort: 7+ hours
+        professional work.
       </p>
     </section>
   );

@@ -40,7 +40,7 @@ export function RubricDesign() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -58,24 +58,24 @@ export function RubricDesign() {
       <div className="grid md:grid-cols-2 gap-6 mb-10">
         <div className="p-5 bg-[var(--surface-raised)]">
           <h3 className="font-mono text-xs text-[var(--ink-tertiary)] uppercase tracking-wider mb-3">
-            Industry Benchmarks
+            GDPval Evaluation
           </h3>
           <div className="space-y-2 text-sm text-[var(--ink-secondary)]">
             <div className="flex items-center gap-2">
               <span className="text-[var(--ink-tertiary)]">-</span>
-              Binary scoring: correct or incorrect
+              Pairwise comparison (A vs B)
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[var(--ink-tertiary)]">-</span>
-              No partial credit
+              GPT-5 automated judge (~66% human agreement)
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[var(--ink-tertiary)]">-</span>
-              Single right answer
+              No structured rubric or point system
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--ink-tertiary)]">-</span>1 point
-              per question
+              <span className="text-[var(--ink-tertiary)]">-</span>
+              Single holistic quality judgment
             </div>
           </div>
         </div>
@@ -138,8 +138,8 @@ export function RubricDesign() {
           </div>
 
           <p className="text-xs text-[var(--ink-tertiary)] mt-3 italic">
-            "Meets [PROFESSIONAL STANDARD] with accurate [DOMAIN METRIC]
-            and complete [DELIVERABLE COMPONENT]..."
+            "Meets accuracy standards with complete quantitative analysis
+            and well-structured recommendation..."
           </p>
         </div>
 
@@ -181,7 +181,7 @@ export function RubricDesign() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 4 - Rubric structure and scoring methodology. Each criterion
+        Fig. 5 - Rubric structure and scoring methodology. Each criterion
         uses domain-specific professional standards as quality benchmarks.
       </p>
     </section>

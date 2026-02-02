@@ -278,12 +278,22 @@ const dataFileCounts = tasks.map((t) => t.dataFileCount);
 const solFileCounts = tasks.map((t) => t.solutionFileCount);
 const hours = tasks.map((t) => t.estimatedHours);
 
-// Unique file types across all tasks
+// File type extensions to exclude (VCS artifacts, IDE configs, build artifacts)
+const EXCLUDED_EXTENSIONS = new Set([
+  "gitkeep", "gitignore", "gitattributes",
+  "pbxproj", "xcconfig", "xcscheme", "xcsettings", "xcworkspacedata",
+  "xib", "storyboard", "plist", "entitlements",
+  "lock", "properties", "example", "better-env", "dockerignore",
+  "mod", "sum", "wav (1)",
+]);
+
+// Unique file types across all tasks (excluding non-content types)
 const allFileTypes = new Set();
 const fileTypeFreq = {};
 for (const t of tasks) {
   const taskTypes = new Set([...t.dataFileTypes, ...t.solutionFileTypes]);
   for (const ft of taskTypes) {
+    if (EXCLUDED_EXTENSIONS.has(ft)) continue;
     allFileTypes.add(ft);
     fileTypeFreq[ft] = (fileTypeFreq[ft] || 0) + 1;
   }

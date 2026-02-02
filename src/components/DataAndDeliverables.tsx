@@ -71,7 +71,7 @@ export function DataAndDeliverables() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">04</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -197,7 +197,7 @@ export function DataAndDeliverables() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 5 - File type categories and solution deliverable structure.
+        Fig. 4 - File type categories and solution deliverable structure.
         Category counts reflect tasks using at least one file type in
         that category.
       </p>

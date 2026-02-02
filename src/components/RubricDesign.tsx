@@ -40,7 +40,7 @@ export function RubricDesign() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">05</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -181,7 +181,7 @@ export function RubricDesign() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 6 - Rubric structure and scoring methodology. Each criterion
+        Fig. 5 - Rubric structure and scoring methodology. Each criterion
         uses domain-specific professional standards as quality benchmarks.
       </p>
     </section>

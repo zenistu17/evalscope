@@ -1,7 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { ModelPerformance } from "@/components/ModelPerformance";
 import { PerformanceGap } from "@/components/PerformanceGap";
-import { UnsolvedFrontier } from "@/components/UnsolvedFrontier";
 import { InstructionDepth } from "@/components/InstructionDepth";
 import { DataAndDeliverables } from "@/components/DataAndDeliverables";
 import { RubricDesign } from "@/components/RubricDesign";
@@ -23,8 +22,6 @@ function App() {
       <ModelPerformance />
       <Divider />
       <PerformanceGap />
-      <Divider />
-      <UnsolvedFrontier />
       <Divider />
       <InstructionDepth />
       <Divider />

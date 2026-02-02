@@ -20,7 +20,7 @@ export function OccupationCoverage() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs text-[var(--ink-tertiary)]">07</span>
+        <span className="font-mono text-xs text-[var(--ink-tertiary)]">06</span>
         <div className="w-8 h-px bg-[var(--rule)]" />
       </div>
 
@@ -91,7 +91,7 @@ export function OccupationCoverage() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 7 - Sector and occupation distribution
+        Fig. 6 - Sector and occupation distribution
         across {taskQualityData.totalTasks} tasks. Minimum task effort: 7+ hours
         professional work.
       </p>

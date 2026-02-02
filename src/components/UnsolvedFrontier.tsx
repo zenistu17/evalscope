@@ -77,10 +77,7 @@ export function UnsolvedFrontier() {
                 key={task.id}
                 className="p-3 bg-[var(--surface-raised)] border-l-2 border-[var(--accent)]"
               >
-                <div className="font-mono text-[11px] text-[var(--ink-tertiary)] leading-tight truncate">
-                  {task.id}
-                </div>
-                <div className="text-sm text-[var(--ink-secondary)] mt-1">
+                <div className="text-sm text-[var(--ink-secondary)]">
                   {task.description}
                 </div>
               </div>

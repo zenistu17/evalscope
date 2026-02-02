@@ -2,8 +2,11 @@ import { Hero } from "@/components/Hero";
 import { ModelPerformance } from "@/components/ModelPerformance";
 import { PerformanceGap } from "@/components/PerformanceGap";
 import { UnsolvedFrontier } from "@/components/UnsolvedFrontier";
-import { TaskExamples } from "@/components/TaskExamples";
-import { EvaluationMethodology } from "@/components/EvaluationMethodology";
+import { InstructionDepth } from "@/components/InstructionDepth";
+import { DataAndDeliverables } from "@/components/DataAndDeliverables";
+import { RubricDesign } from "@/components/RubricDesign";
+import { OccupationCoverage } from "@/components/OccupationCoverage";
+import { Methodology } from "@/components/Methodology";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -23,9 +26,15 @@ function App() {
       <Divider />
       <UnsolvedFrontier />
       <Divider />
-      <TaskExamples />
+      <InstructionDepth />
       <Divider />
-      <EvaluationMethodology />
+      <DataAndDeliverables />
+      <Divider />
+      <RubricDesign />
+      <Divider />
+      <OccupationCoverage />
+      <Divider />
+      <Methodology />
       <Divider />
       <CTASection />
       <Footer />

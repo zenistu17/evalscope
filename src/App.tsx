@@ -1,11 +1,9 @@
 import { Hero } from "@/components/Hero";
-import { GdpvalComparison } from "@/components/GdpvalComparison";
-import { MagnitudeGap } from "@/components/MagnitudeGap";
-import { InstructionDepth } from "@/components/InstructionDepth";
-import { DataAndDeliverables } from "@/components/DataAndDeliverables";
-import { RubricDesign } from "@/components/RubricDesign";
-import { OccupationCoverage } from "@/components/OccupationCoverage";
-import { Methodology } from "@/components/Methodology";
+import { ModelPerformance } from "@/components/ModelPerformance";
+import { PerformanceGap } from "@/components/PerformanceGap";
+import { UnsolvedFrontier } from "@/components/UnsolvedFrontier";
+import { TaskExamples } from "@/components/TaskExamples";
+import { EvaluationMethodology } from "@/components/EvaluationMethodology";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -19,19 +17,15 @@ function App() {
   return (
     <div className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
       <Hero />
-      <GdpvalComparison />
+      <ModelPerformance />
       <Divider />
-      <MagnitudeGap />
+      <PerformanceGap />
       <Divider />
-      <InstructionDepth />
+      <UnsolvedFrontier />
       <Divider />
-      <DataAndDeliverables />
+      <TaskExamples />
       <Divider />
-      <RubricDesign />
-      <Divider />
-      <OccupationCoverage />
-      <Divider />
-      <Methodology />
+      <EvaluationMethodology />
       <Divider />
       <CTASection />
       <Footer />

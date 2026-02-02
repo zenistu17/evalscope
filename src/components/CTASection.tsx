@@ -3,22 +3,21 @@ export function CTASection() {
     <section className="bg-[var(--accent-muted)]">
       <div className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="font-serif text-[2.5rem] tracking-[-0.01em] mb-4">
-          Need Professional-Grade Evaluation Tasks?
+          Need to Know How AI Performs in Your Industry?
         </h2>
 
         <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-4 text-lg">
-          Parsewave builds the tasks that power GDPval: real professional
-          deliverables created by domain experts with an average of 14 years of
-          experience. If you need rigorous, multi-modal evaluation tasks that
-          measure what AI can actually do, we should talk.
+          We build occupation-specific evaluation tasks with professional-grade
+          rubrics. If you need to understand how AI models actually perform on
+          the work your team does, we can design an evaluation that answers that
+          question.
         </p>
 
         <p className="text-[var(--ink-secondary)] leading-relaxed max-w-2xl mb-8">
-          We work with AI labs to design, build, and validate professional
-          evaluation tasks across any industry or occupation. Whether you are
-          building a new benchmark, extending an existing one, or need custom
-          evaluation for your models, we bring the same methodology that
-          OpenAI trusted for GDPval.
+          Our methodology has been used to evaluate frontier models across
+          36 occupations and 9 industry sectors. We work with AI labs and
+          enterprises to build, validate, and score evaluation tasks that
+          measure real capability.
         </p>
 
         <div className="flex flex-wrap items-center gap-6">
@@ -28,7 +27,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            Get in touch
+            Contact Parsewave
           </a>
           <a
             href="https://parsewave.ai"
@@ -36,7 +35,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="text-sm text-[var(--accent)] hover:underline"
           >
-            parsewave.ai {'->'}
+            parsewave.ai &rarr;
           </a>
         </div>
       </div>

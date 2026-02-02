@@ -1,8 +1,9 @@
 import { Hero } from "@/components/Hero";
-import { HeadlineFinding } from "@/components/HeadlineFinding";
-import { OccupationHeatmap } from "@/components/OccupationHeatmap";
-import { UniversalFailures } from "@/components/UniversalFailures";
-import { ScoreDistribution } from "@/components/ScoreDistribution";
+import { MagnitudeGap } from "@/components/MagnitudeGap";
+import { InstructionDepth } from "@/components/InstructionDepth";
+import { DataAndDeliverables } from "@/components/DataAndDeliverables";
+import { RubricDesign } from "@/components/RubricDesign";
+import { OccupationCoverage } from "@/components/OccupationCoverage";
 import { Methodology } from "@/components/Methodology";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -17,13 +18,15 @@ function App() {
   return (
     <div className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
       <Hero />
-      <HeadlineFinding />
+      <MagnitudeGap />
       <Divider />
-      <OccupationHeatmap />
+      <InstructionDepth />
       <Divider />
-      <UniversalFailures />
+      <DataAndDeliverables />
       <Divider />
-      <ScoreDistribution />
+      <RubricDesign />
+      <Divider />
+      <OccupationCoverage />
       <Divider />
       <Methodology />
       <Divider />

@@ -34,7 +34,7 @@ export function Hero() {
         {totalTasks} tasks spanning {keyMetrics.uniqueOccupations} occupations
         across {keyMetrics.uniqueSectors} industry sectors. Each designed by
         domain experts, scored with multi-criteria rubrics that capture work
-        quality&mdash;not just correctness.
+        quality - not just correctness.
       </p>
 
       <div className="flex flex-wrap items-center gap-6 text-xs text-[var(--ink-tertiary)]">

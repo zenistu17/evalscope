@@ -98,7 +98,7 @@ export function OccupationCoverage() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 5 &mdash; Sector and occupation distribution
+        Fig. 5 - Sector and occupation distribution
         across {taskQualityData.totalTasks} tasks. Avg estimated task duration:{" "}
         {keyMetrics.avgEstimatedHours} hours.
       </p>

@@ -71,7 +71,7 @@ export function Methodology() {
         </h3>
         <p className="text-[var(--ink-secondary)] leading-relaxed mb-3">
           Parsewave designed these tasks, but the structural metrics reported
-          here&mdash;instruction length, file types, rubric complexity&mdash;are
+          here - instruction length, file types, rubric complexity - are
           objective and independently verifiable. The task repository is
           available for inspection.
         </p>

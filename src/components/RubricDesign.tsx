@@ -3,25 +3,25 @@ import { taskQualityData } from "@/data/taskQualityData";
 const LEVELS = [
   {
     label: "Needs Improvement",
-    range: "1–3",
+    range: "1-3",
     color: "var(--surface-sunken)",
     textColor: "var(--ink-tertiary)",
   },
   {
     label: "Basic",
-    range: "4–6",
+    range: "4-6",
     color: "var(--rule)",
     textColor: "var(--ink-secondary)",
   },
   {
     label: "Proficient",
-    range: "7–8",
+    range: "7-8",
     color: "var(--accent-muted)",
     textColor: "var(--accent-strong)",
   },
   {
     label: "Exemplary",
-    range: "9–10",
+    range: "9-10",
     color: "var(--accent)",
     textColor: "white",
   },
@@ -62,19 +62,19 @@ export function RubricDesign() {
           </h3>
           <div className="space-y-2 text-sm text-[var(--ink-secondary)]">
             <div className="flex items-center gap-2">
-              <span className="text-[var(--ink-tertiary)]">&bull;</span>
+              <span className="text-[var(--ink-tertiary)]">-</span>
               Binary scoring: correct or incorrect
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--ink-tertiary)]">&bull;</span>
+              <span className="text-[var(--ink-tertiary)]">-</span>
               No partial credit
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--ink-tertiary)]">&bull;</span>
+              <span className="text-[var(--ink-tertiary)]">-</span>
               Single right answer
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--ink-tertiary)]">&bull;</span>1 point
+              <span className="text-[var(--ink-tertiary)]">-</span>1 point
               per question
             </div>
           </div>
@@ -86,19 +86,19 @@ export function RubricDesign() {
           </h3>
           <div className="space-y-2 text-sm text-[var(--ink)]">
             <div className="flex items-center gap-2">
-              <span className="text-[var(--accent)]">&bull;</span>
+              <span className="text-[var(--accent)]">-</span>
               {keyMetrics.avgRubricPoints} avg points per task
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--accent)]">&bull;</span>
+              <span className="text-[var(--accent)]">-</span>
               {keyMetrics.avgCriteriaCount} avg criteria per task
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--accent)]">&bull;</span>4 quality
+              <span className="text-[var(--accent)]">-</span>4 quality
               levels per criterion
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--accent)]">&bull;</span>
+              <span className="text-[var(--accent)]">-</span>
               Domain-specific professional standards
             </div>
           </div>
@@ -138,13 +138,13 @@ export function RubricDesign() {
           </div>
 
           <p className="text-xs text-[var(--ink-tertiary)] mt-3 italic">
-            &ldquo;Meets [PROFESSIONAL STANDARD] with accurate [DOMAIN METRIC]
-            and complete [DELIVERABLE COMPONENT]...&rdquo;
+            "Meets [PROFESSIONAL STANDARD] with accurate [DOMAIN METRIC]
+            and complete [DELIVERABLE COMPONENT]..."
           </p>
         </div>
 
         <p className="text-sm text-[var(--ink-secondary)] mt-3">
-          &times; {keyMetrics.avgCriteriaCount} criteria per task average ={" "}
+          x {keyMetrics.avgCriteriaCount} criteria per task average ={" "}
           {keyMetrics.avgRubricPoints} total points
         </p>
       </div>
@@ -181,7 +181,7 @@ export function RubricDesign() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 4 &mdash; Rubric structure and scoring methodology. Each criterion
+        Fig. 4 - Rubric structure and scoring methodology. Each criterion
         uses domain-specific professional standards as quality benchmarks.
       </p>
     </section>

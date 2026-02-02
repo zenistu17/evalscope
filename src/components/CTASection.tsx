@@ -20,7 +20,7 @@ export function CTASection() {
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <div className="bg-[var(--surface)] p-5">
             <h3 className="font-semibold text-[var(--ink)] mb-2">
-              AI Labs &amp; Model Developers
+              AI Labs & Model Developers
             </h3>
             <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
               Evaluate your models on real professional tasks before deployment.
@@ -35,7 +35,7 @@ export function CTASection() {
             </h3>
             <p className="text-sm text-[var(--ink-secondary)] leading-relaxed">
               Validate AI performance for your specific workflows. Build
-              evaluation suites that match your team&apos;s actual work with
+              evaluation suites that match your team's actual work with
               domain expert-designed tasks and professional standards.
             </p>
           </div>
@@ -63,7 +63,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="text-sm text-[var(--accent)] hover:underline"
           >
-            parsewave.ai &rarr;
+            {"parsewave.ai ->"}
           </a>
         </div>
       </div>

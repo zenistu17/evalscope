@@ -164,7 +164,7 @@ export function MagnitudeGap() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-8">
-        Fig. 1 &mdash; Structural comparison between industry AI benchmarks
+        Fig. 1 - Structural comparison between industry AI benchmarks
         (MMLU, GAIA, HLE, SWE-bench, GPQA) and Parsewave evaluation tasks.
         Benchmark averages computed from published specifications.
       </p>

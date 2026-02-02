@@ -1,60 +1,71 @@
 import { taskQualityData } from "@/data/taskQualityData";
 
-const FILE_TYPE_CATEGORIES: Record<string, string> = {
-  xlsx: "Spreadsheet",
-  xls: "Spreadsheet",
-  csv: "Data",
-  json: "Data",
-  sql: "Data",
-  xml: "Data",
-  yaml: "Data",
-  docx: "Document",
-  doc: "Document",
-  pdf: "Document",
-  md: "Document",
-  txt: "Document",
-  rtf: "Document",
-  py: "Code",
-  js: "Code",
-  ts: "Code",
-  tsx: "Code",
-  jsx: "Code",
-  html: "Code",
-  css: "Code",
-  java: "Code",
-  sh: "Code",
-  mp4: "Video",
-  mov: "Video",
-  mp3: "Audio",
-  wav: "Audio",
-  png: "Image",
-  jpg: "Image",
-  jpeg: "Image",
-  svg: "Image",
-  gif: "Image",
-  stl: "3D/CAD",
-  step: "3D/CAD",
-  dwg: "3D/CAD",
-  usdz: "3D/CAD",
-  zip: "Archive",
-  ttf: "Font",
-  gsheet: "Spreadsheet",
-  pptx: "Presentation",
-};
+interface CategoryDef {
+  name: string;
+  extensions: string[];
+  description: string;
+}
+
+const CATEGORIES: CategoryDef[] = [
+  {
+    name: "Spreadsheets & Data",
+    extensions: ["xlsx", "xls", "csv", "gsheet", "json", "xml", "yaml", "sql", "tsv"],
+    description: "Financial models, datasets, databases",
+  },
+  {
+    name: "Documents",
+    extensions: ["docx", "doc", "pdf", "pptx", "rtf", "md", "txt"],
+    description: "Reports, briefs, presentations, memos",
+  },
+  {
+    name: "Code & Config",
+    extensions: [
+      "py", "js", "ts", "tsx", "jsx", "html", "css", "java", "sh",
+      "toml", "yml", "ini", "env", "lock", "cfg",
+    ],
+    description: "Source code, scripts, configuration",
+  },
+  {
+    name: "Images",
+    extensions: ["png", "jpg", "jpeg", "svg", "gif", "webp", "bmp", "tiff"],
+    description: "Screenshots, diagrams, photos",
+  },
+  {
+    name: "Video & Audio",
+    extensions: ["mp4", "mov", "mp3", "wav", "avi", "mkv", "flac"],
+    description: "Film footage, music tracks, voice recordings",
+  },
+  {
+    name: "3D & CAD",
+    extensions: ["stl", "step", "dwg", "usdz", "obj", "fbx", "iges"],
+    description: "Engineering models, 3D assets, CAD drawings",
+  },
+  {
+    name: "Archives & Other",
+    extensions: ["zip", "ttf", "otf", "rar", "7z", "tar"],
+    description: "Compressed files, fonts, binaries",
+  },
+];
 
 export function DataAndDeliverables() {
-  const { stats, keyMetrics } = taskQualityData;
+  const { stats, keyMetrics, tasks } = taskQualityData;
 
-  // Sort file types by frequency
-  const fileTypes = Object.entries(stats.fileTypeFrequency)
-    .sort((a, b) => b[1] - a[1])
-    .map(([ext, count]) => ({
-      ext,
-      count,
-      category: FILE_TYPE_CATEGORIES[ext] || "Other",
-    }));
+  // Compute task count per category (how many tasks use at least one file type in this category)
+  const categoryStats = CATEGORIES.map((cat) => {
+    const extSet = new Set(cat.extensions);
+    const taskCount = tasks.filter((t) => {
+      const allTypes = [...t.dataFileTypes, ...t.solutionFileTypes];
+      return allTypes.some((ext) => extSet.has(ext));
+    }).length;
+    // Top file types in this category that actually appear in data
+    const topTypes = cat.extensions
+      .filter((ext) => stats.fileTypeFrequency[ext])
+      .sort((a, b) => (stats.fileTypeFrequency[b] || 0) - (stats.fileTypeFrequency[a] || 0))
+      .slice(0, 4);
+    return { ...cat, taskCount, topTypes };
+  }).filter((c) => c.taskCount > 0);
 
-  // Solution file distribution (how many tasks have 1, 2, 3, etc.)
+  const maxCategoryCount = Math.max(...categoryStats.map((c) => c.taskCount));
   const solDistribution = stats.solutionFilesPerTask;
 
   return (
@@ -74,25 +85,37 @@ export function DataAndDeliverables() {
         editors, code repositories for developers.
       </p>
 
-      {/* Input files section */}
+      {/* File type categories */}
       <div className="mb-10">
         <h3 className="font-mono text-xs text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">
-          Input files &mdash; {keyMetrics.uniqueFileTypes}+ types
+          Input and output files - {keyMetrics.uniqueFileTypes} unique types
           across {taskQualityData.totalTasks} tasks
         </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-          {fileTypes.map(({ ext, count, category }) => (
-            <div
-              key={ext}
-              className="p-3 bg-[var(--surface-raised)] border border-[var(--rule)]"
-            >
-              <div className="font-mono text-sm font-medium">.{ext}</div>
-              <div className="text-[11px] text-[var(--ink-tertiary)] mt-0.5">
-                {category}
+        <div className="space-y-3">
+          {categoryStats.map(({ name, description, taskCount, topTypes }) => (
+            <div key={name} className="flex items-center gap-4">
+              <div className="w-44 sm:w-56 shrink-0">
+                <div className="text-sm font-medium">{name}</div>
+                <div className="text-[11px] text-[var(--ink-tertiary)]">
+                  {description}
+                </div>
               </div>
-              <div className="font-mono text-xs text-[var(--ink-secondary)] mt-1">
-                {count} {count === 1 ? "task" : "tasks"}
+              <div className="flex-1 h-8 bg-[var(--surface-raised)] relative overflow-hidden">
+                <div
+                  className="h-full bg-[var(--accent)]"
+                  style={{
+                    width: `${(taskCount / maxCategoryCount) * 100}%`,
+                  }}
+                />
+              </div>
+              <div className="shrink-0 text-right">
+                <div className="font-mono text-sm font-medium w-20 text-right">
+                  {taskCount} tasks
+                </div>
+                <div className="font-mono text-[10px] text-[var(--ink-tertiary)]">
+                  {topTypes.map((t) => `.${t}`).join(", ")}
+                </div>
               </div>
             </div>
           ))}
@@ -102,7 +125,7 @@ export function DataAndDeliverables() {
       {/* Solution deliverables section */}
       <div>
         <h3 className="font-mono text-xs text-[var(--ink-tertiary)] uppercase tracking-wider mb-4">
-          Solution deliverables &mdash; Multi-file professional output
+          Solution deliverables - multi-file professional output
         </h3>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -114,16 +137,16 @@ export function DataAndDeliverables() {
             <div className="font-mono text-sm space-y-1">
               <div className="text-[var(--ink)]">solution/</div>
               <div className="pl-4 text-[var(--ink-secondary)]">
-                ├── primary_deliverable.xlsx
+                |-- primary_deliverable.xlsx
               </div>
               <div className="pl-4 text-[var(--ink-secondary)]">
-                ├── supporting_analysis.pdf
+                |-- supporting_analysis.pdf
               </div>
               <div className="pl-4 text-[var(--ink-secondary)]">
-                ├── data_sources.csv
+                |-- data_sources.csv
               </div>
               <div className="pl-4 text-[var(--ink-secondary)]">
-                └── methodology_notes.md
+                |-- methodology_notes.md
               </div>
             </div>
           </div>
@@ -154,8 +177,7 @@ export function DataAndDeliverables() {
                   Range:
                 </span>
                 <span className="text-sm text-[var(--ink-secondary)]">
-                  {solDistribution.min}&ndash;{solDistribution.max} files per
-                  task
+                  {solDistribution.min}-{solDistribution.max} files per task
                 </span>
               </div>
             </div>
@@ -173,8 +195,9 @@ export function DataAndDeliverables() {
       </div>
 
       <p className="font-mono text-[11px] text-[var(--ink-tertiary)] mt-6">
-        Fig. 3 &mdash; File type distribution and solution deliverable
-        structure. File types counted by number of tasks using each type.
+        Fig. 3 - File type categories and solution deliverable structure.
+        Category counts reflect tasks using at least one file type in
+        that category.
       </p>
     </section>
   );
